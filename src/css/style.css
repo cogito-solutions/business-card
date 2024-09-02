@@ -531,7 +531,7 @@ textarea::placeholder {
     position: absolute;
     inset: 60px var(--spacing-md) var(--spacing-md) var(--spacing-md);
     padding: var(--spacing-md) 0;
-    background-color: var(--color-background-dark);
+    background-color: var(--color-hero-overlay);
     border-radius: var(--border-radius-md);
     overflow-y: auto;
     box-shadow: 0 0 30px var(--color-box-shadow);
@@ -886,6 +886,8 @@ section {
   font-size: 1rem; /* Use rem for consistency */
   color: var(--color-text-light); /* Slightly lighter gray for better readability */
   margin-left: 60px;
+  text-align: justify; /* Add this line to justify the paragraph text */
+
 }
 
 .features .image {
@@ -917,11 +919,11 @@ section {
   }
 
   .features .icon-box h4 {
-    margin-left: 30px; /* Adjust margin for smaller screens */
+    margin: var(--spacing-xs) 0 var(--spacing-sm) 60px; /* Use spacing variables */
   }
 
   .features .icon-box p {
-    margin-left: 30px; /* Adjust margin for smaller screens */
+    margin-left: 60px;
   }
 
   .features .image {
@@ -985,6 +987,8 @@ section {
   font-size: var(--font-size-base); /* Keep the size of the paragraph text */
   margin-bottom: 0; /* Remove bottom margin */
   color: var(--color-text-light); /* Paragraph color */
+  text-align: justify; /* Add this line to justify the paragraph text */
+
 }
 
 .services .icon-box:hover {
@@ -996,8 +1000,9 @@ section {
 /* Media Queries */
 @media (max-width: 768px) {
   .services .icon-box {
-    width: 100%; /* Full width on small screens */
-    height: auto; /* Auto height for responsiveness */
+
+    width: 290px; /* Keep the size of the container */
+    height: 290px; /* Keep the size of the container */
   }
 
   .services .icon-box .icon {
@@ -1030,15 +1035,27 @@ section {
 .cta {
   background: linear-gradient(var(--color-hero-overlay), var(--color-hero-overlay)), url("../img/hero-bg.webp") fixed center center;
   background-size: cover;
-  padding: var(--spacing-xl) 0; /* Increased vertical padding */
+  padding: var(--spacing-xl) 0;
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
   text-align: center; /* Center text and button horizontally */
+  height: 180px; /* Set height of the container */
 }
 
-.cta h4 { /* Changed from h3 to h4 to match HTML */
+.cta .container {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  height: 100%; /* Ensure the container takes full height of the parent */
+}
+
+.cta h4 { 
   color: var(--color-text-light);
   font-size: var(--font-size-large);
   font-weight: 700;
-  margin-bottom: var(--spacing-md); /* Add space below the heading */
+  margin-bottom: var(--spacing-md);
 }
 
 .cta .cta-btn {
@@ -1050,15 +1067,16 @@ section {
   padding: var(--spacing-sm) var(--spacing-lg);
   border-radius: var(--border-radius-md);
   transition: background-color var(--transition-default), color var(--transition-default);
-  margin-top: var(--spacing-md); /* Adjusted margin for better spacing */
-  background: var(--color-link); /* Make the button fully purple */
-  color: var(--color-text-light); /* Ensure text contrast against purple background */
+  margin-top: var(--spacing-md);
+  background: var(--color-link);
+  color: var(--color-text-light);
 }
 
 .cta .cta-btn:hover {
-  background: var(--color-link-hover); /* Keep the background purple on hover */
-  color: var(--color-background-dark); /* Ensure text contrast on hover */
+  background: var(--color-link-hover);
+  color: var(--color-background-dark);
 }
+
 
 
 
@@ -1110,7 +1128,7 @@ section {
   position: relative;
   overflow: hidden;
   z-index: 1;
-  background: var(--color-background-dark);
+  background: var(--color-hero-overlay); /* Changed background to solid color */
   width: 400px;
   height: 400px;
   max-width: 100%;
@@ -1118,77 +1136,72 @@ section {
   box-shadow: 0px 2px 15px var(--color-box-shadow-light);
 }
 
-/* Portfolio Icon */
-.portfolio-item .portfolio-wrap .portfolio-icon {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform var(--transition-default);
-}
-
-.portfolio .portfolio-wrap:hover .portfolio-icon {
-  transform: scale(1.2);
-}
-
-/* Overlay */
-.portfolio .portfolio-wrap::before {
-  content: "";
-  background: var(--color-box-hover);
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  transition: opacity var(--transition-default);
-  z-index: 2;
-  opacity: 0;
-}
-
-/* Image Transition */
-.portfolio .portfolio-wrap img {
-  transition: transform var(--transition-default);
-}
-
 /* Portfolio Info */
 .portfolio .portfolio-wrap .portfolio-info {
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 3;
-  transition: opacity var(--transition-default);
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
+  justify-content: center; 
+  align-items: center;
   padding: var(--spacing-md);
   color: var(--color-text-light);
+  height: 100%; /* Ensure the info takes up the full height */
+  opacity: 1; /* Ensure the info is always visible */
+  transition: opacity var(--transition-default), color var(--transition-default);
 }
 
-.portfolio .portfolio-wrap:hover .portfolio-info {
-  opacity: 1;
-}
 
-.portfolio .portfolio-wrap .portfolio-info h4 {
-  font-size: var(--font-size-large);
+.portfolio .portfolio-wrap h3 {
+  font-size: var(--font-size-large*2);
   font-weight: 600;
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
 }
 
-.portfolio .portfolio-wrap .portfolio-info p {
+/* Additional styles for the sup element in header */
+.portfolio .portfolio-wrap .portfolio-info h3 sup {
+  font-size: 0.75em; /* Slightly smaller font size for superscript */
+  vertical-align: super; /* Raise the superscript */
+}
+
+
+
+.portfolio .portfolio-wrap p {
   color: var(--color-text-light);
-  font-size: var(--font-size-small);
-  text-transform: uppercase;
+  font-size: var(--font-size-medium);
+  text-transform: none;
   padding: 0;
   margin: 0;
-  font-style: italic;
+  font-style: normal;
+  margin-bottom: var(--spacing-sm);
 }
+
+/* Updated Bullet List */
+.portfolio .portfolio-wrap .portfolio-info ul {
+  list-style-type: disc; /* Use disc for bullet points */
+  padding-left: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+  text-align: center; /* Center the list items */
+}
+
+.portfolio .portfolio-wrap .portfolio-info ul li {
+  margin-bottom: var(--spacing-md); /* Add space between list items */
+}
+
+
 
 /* Portfolio Links */
 .portfolio .portfolio-wrap .portfolio-links {
-  text-align: center;
-  z-index: 4;
+  opacity: 0;
+  position: absolute;
+  bottom: var(--spacing-md); /* Position links at the bottom */
+  left: var(--spacing-md);
+  z-index: 3;
+  transition: opacity var(--transition-default);
+}
+
+.portfolio .portfolio-wrap:hover .portfolio-links {
+  opacity: 1; /* Show links on hover */
 }
 
 .portfolio .portfolio-wrap .portfolio-links a {
@@ -1215,13 +1228,36 @@ section {
   opacity: 1;
 }
 
-.portfolio .portfolio-wrap:hover img {
-  transform: scale(1.2);
+/* Portfolio Item Wrapper Hover Effect */
+.portfolio .portfolio-wrap:hover {
+  background: rgba(255, 255, 255, 0.05); /* Apply a whitish overlay */
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3); /* Adjust shadow for better visibility on hover */
+  color: var(--color-text-dark); /* Optional: Adjust text color if needed */
 }
 
-.portfolio .portfolio-wrap:hover .portfolio-info {
-  opacity: 1;
+
+/* Portfolio Icon (Hidden by Default) */
+.portfolio-item .portfolio-wrap .portfolio-icon {
+  display: none;
 }
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .portfolio .row {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+  }
+
+  .portfolio .portfolio-item {
+    margin: var(--spacing-md) 0; /* Add vertical margin for spacing */
+  }
+
+  .portfolio .portfolio-wrap {
+    width: 100%; /* Full width of the container */
+    max-width: 400px; /* Ensure it doesn't exceed container width */
+  }
+}
+
 
 /*--------------------------------------------------------------
 # Team
@@ -1313,7 +1349,8 @@ section {
 /* Container styles */
 .contact .row {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column; /* Stack vertically */
+  gap: var(--spacing-md); /* Add spacing between elements */
 }
 
 .contact .col-lg-6 {
@@ -1331,8 +1368,9 @@ section {
   background: var(--color-background-dark);
   color: var(--color-text-light);
   border-radius: var(--border-radius-md);
-  padding: var(--spacing-md);
+  padding: var(--spacing-xl);
   box-shadow: 0px 2px 15px var(--color-box-shadow-light); /* Use variable for box-shadow */
+  flex: 1; /* Allow it to grow and fill available space */
 }
 
 .contact .info .email {
@@ -1358,6 +1396,15 @@ section {
   font-size: var(--font-size-large);
   color: var(--color-text-light);
 }
+
+/* Adjust height of contact info and form */
+
+.contact .contact-form {
+  background: var(--color-background-dark);
+  color: var(--color-text-light);
+  padding: var(--spacing-sm);
+}
+
 
 .contact .contact-form h3 {
   margin-bottom: var(--spacing-md);
@@ -1394,8 +1441,40 @@ section {
   color: var(--color-background-dark);
 }
 
+
+.contact .contact-form .form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.contact .contact-form .form-group label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+}
+
+.contact .contact-form input,
+.contact .contact-form textarea {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--color-box-shadow-light);
+  border-radius: var(--border-radius-sm);
+  background: var(--color-background-dark);
+  color: var(--color-text-light);
+}
+
+.contact .contact-form button {
+  margin-top: var(--spacing-md);
+  background: var(--color-link);
+  color: var(--color-text-light);
+}
+
+.contact .contact-form button:hover {
+  background: var(--color-link-hover);
+  color: var(--color-background-dark);
+}
+
+
 /* Map Container */
-.contact .col-lg-6:last-child {
+.contact .col-lg-12:last-child {
   display: flex;
   align-items: stretch;
   padding: 0; /* Remove padding */
@@ -1406,7 +1485,7 @@ section {
 }
 
 /* Map iframe */
-.contact .col-lg-6:last-child iframe {
+.contact .col-lg-12:last-child iframe {
   width: 100%; /* Full width of the container */
   height: 100%; /* Full height of the container */
   border: none; /* Remove any default border */
@@ -1414,27 +1493,27 @@ section {
 }
 
 
-/* Adjust height of contact info and form */
-.contact .contact-form {
-  background: var(--color-background-dark);
-  color: var(--color-text-light);
-  border-radius: var(--border-radius-md);
-  padding: var(--spacing-md);
-  box-shadow: 0px 2px 15px var(--color-box-shadow-light); /* Use variable for box-shadow */
-  flex: 1; /* Allow both to take up remaining vertical space */
-  max-height: 400px; /* Adjust max height */
-  overflow: auto; /* Add scroll if content overflows */
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
-  .contact .contact-form {
-    padding: var(--spacing-sm);
+  /* Stack columns vertically on mobile */
+  .contact .row {
+    flex-direction: column; /* Stack columns vertically */
   }
 
-  .contact .contact-form input,
-  .contact .contact-form textarea {
-    padding: var(--spacing-xs);
+  .contact .col-lg-6 {
+    width: 100%; /* Ensure each column takes full width */
+    margin-bottom: var(--spacing-md); /* Add spacing between stacked columns */
+  }
+
+  /* Ensure contact form and map take full width */
+  .contact .contact-form,
+  .contact .col-lg-6:last-child {
+    max-height: none; /* Remove max-height restriction */
+  }
+
+  /* Adjust iframe styling for mobile */
+  .contact .col-lg-6:last-child iframe {
+    height: 400px; /* Set a fixed height for map on mobile */
   }
 }
 
