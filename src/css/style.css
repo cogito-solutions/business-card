@@ -260,13 +260,15 @@ textarea::placeholder {
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  display: flex; /* Use flexbox */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
   transition: visibility 0s, opacity var(--transition-default), background-color var(--transition-default);
 }
 
 .back-to-top i {
-  font-size: 24px;
+  font-size: 24px; /* Adjust icon size */
   color: var(--color-text-light);
-  line-height: 50px; /* Center the icon vertically */
 }
 
 .back-to-top:hover,
@@ -290,6 +292,7 @@ textarea::placeholder {
   opacity: 1;
   transition: opacity var(--transition-default), background-color var(--transition-default);
 }
+
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
@@ -346,12 +349,13 @@ textarea::placeholder {
   [data-aos-delay] {
     transition-delay: 0 !important;
   }
+
 }
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
 #header {
-  transition: background-color var(--transition-default); /* Simplify transition to background-color */
+  transition: background-color var(--transition-default), padding var(--transition-default); /* Include padding in transition */
   z-index: 997;
   padding: var(--spacing-md) 0; /* Use spacing variable */
   background-color: transparent;
@@ -360,6 +364,8 @@ textarea::placeholder {
 #header.header-scrolled,
 #header.header-inner-pages {
   background-color: var(--color-hero-overlay); /* Use CSS variable */
+  padding: var(--spacing-sm) 0; /* Reduce padding when scrolled */
+
 }
 
 #header .logo {
@@ -801,7 +807,7 @@ section {
 /* Responsive design adjustments */
 @media (max-width: 768px) {
   .about .content h2 {
-    font-size: calc(var(--font-size-base) * 1.5); /* Adjust size for smaller screens */
+    font-size: var(--font-size-medium); /* Adjust size for smaller screens */
   }
 
   .about .content p {
@@ -809,55 +815,6 @@ section {
   }
 }
 
-@media (max-width: 576px) {
-  .about .content h2 {
-    font-size: calc(var(--font-size-base) * 1.25); /* Further adjust size for very small screens */
-  }
-
-  .about .content p {
-    font-size: var(--font-size-small); /* Further adjust size for very small screens */
-  }
-}
-/*--------------------------------------------------------------
-# Clients
---------------------------------------------------------------*/
-.clients {
-  padding-top: var(--spacing-lg); /* Updated to use CSS variable */
-}
-
-/* Swiper Slide Images */
-.clients .swiper-slide img {
-  opacity: 0.7; /* Slightly higher opacity for better visibility */
-  transition: opacity var(--transition-default), filter var(--transition-default);
-  filter: grayscale(100%);
-}
-
-/* Hover Effects for Swiper Slide Images */
-.clients .swiper-slide img:hover {
-  filter: none;
-  opacity: 1;
-}
-
-/* Swiper Pagination */
-.clients .swiper-pagination {
-  margin-top: var(--spacing-lg); /* Updated to use CSS variable */
-  position: relative;
-}
-
-/* Swiper Pagination Bullets */
-.clients .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: var(--color-text-light); /* Fixed variable name */
-  opacity: 1;
-  background-color: var(--color-background-dark); /* Fixed variable name */
-  transition: background-color var(--transition-default);
-}
-
-/* Active Swiper Pagination Bullet */
-.clients .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: var(--color-link); /* Fixed variable name */
-}
 /*--------------------------------------------------------------
 # Features
 --------------------------------------------------------------*/
@@ -920,56 +877,62 @@ section {
 
   .features .icon-box h4 {
     margin: var(--spacing-xs) 0 var(--spacing-sm) 60px; /* Use spacing variables */
+    font-size: var(--font-size-large);
   }
 
   .features .icon-box p {
     margin-left: 60px;
+    font-size: var(--font-size-small);
   }
 
   .features .image {
     min-height: 300px; /* Adjust image height for smaller screens */
   }
 }
-
 /*--------------------------------------------------------------
 # Services
 --------------------------------------------------------------*/
+
 .services .icon-box {
   text-align: center;
-  padding: var(--spacing-md) var(--spacing-xs); /* Reduced padding */
+  padding: var(--spacing-lg) var(--spacing-md); /* Increase padding for better spacing */
   transition: all var(--transition-default);
   background: var(--color-background-dark);
   color: var(--color-text-light);
   border-radius: var(--border-radius-md);
-  width: 290px; /* Keep the size of the container */
-  height: 290px; /* Keep the size of the container */
-  margin: auto;
+  width: 350px; /* Size of the container */
+  height: 350px; /* Adjusted height for better text fit */
+  margin: auto; /* Center container horizontally */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
 }
 
 .services .icon-box .icon {
-  margin: 0 auto;
-  width: 64px; /* Keep the size of the icon */
-  height: 64px; /* Keep the size of the icon */
+  display: flex;
+  align-items: center; /* Center icon vertically */
+  justify-content: center; /* Center icon horizontally */
+  width: 64px; /* Ensure width and height are consistent */
+  height: 64px; /* Ensure width and height are consistent */
   background: var(--color-link);
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: var(--spacing-xs); /* Reduced space below icon */
+  margin: 0 auto;
+  margin-bottom: var(--spacing-sm); /* Space below icon */
+  margin-top: var(--spacing-sm); /* Space above icon */
   transition: background-color var(--transition-default);
-  margin-top: var(--spacing-sm); /* Reduced space above icon */
 }
 
 .services .icon-box .icon i {
   color: var(--color-text-light);
-  font-size: 28px; /* Keep the size of the icon font */
+  font-size: 36px; /* Increased icon font size */
   transition: color var(--transition-default);
 }
 
 .services .icon-box h4 {
   font-weight: 700;
-  margin-bottom: var(--spacing-xs); /* Reduced space below heading */
-  font-size: var(--font-size-large); /* Keep the size of the heading */
+  margin-bottom: var(--spacing-sm); /* Increased space below heading */
+  font-size: var(--font-size-large); /* Heading size */
   color: var(--color-text-light); /* Heading color */
 }
 
@@ -984,46 +947,46 @@ section {
 
 .services .icon-box p {
   line-height: var(--line-height-base);
-  font-size: var(--font-size-base); /* Keep the size of the paragraph text */
-  margin-bottom: 0; /* Remove bottom margin */
+  font-size: var(--font-size-medium); /* Increased font size for readability */
+  margin: 0; /* Remove margin for consistency */
   color: var(--color-text-light); /* Paragraph color */
-  text-align: justify; /* Add this line to justify the paragraph text */
-
+  text-align: center; /* Center align text */
 }
 
 .services .icon-box:hover {
   border-color: var(--color-text-light);
-  box-shadow: 0px 2px 15px var(--color-box-shadow-light); /* Keep shadow for hover */
-  transform: translateY(-10px); /* Keep transform effect */
+  box-shadow: 0px 4px 20px var(--color-box-shadow-light); /* Enhanced shadow for hover */
+  transform: translateY(-10px); /* Slight lift effect */
 }
 
 /* Media Queries */
 @media (max-width: 768px) {
   .services .icon-box {
-
-    width: 290px; /* Keep the size of the container */
-    height: 290px; /* Keep the size of the container */
+    width: 350px; /* Container width on mobile */
+    height: 350px; /* Height on mobile for better text fit */
   }
 
   .services .icon-box .icon {
-    width: 64px; /* Keep icon size on mobile */
-    height: 64px; /* Keep icon size on mobile */
-    margin-bottom: var(--spacing-xs); /* Reduced space below icon on mobile */
-    margin-top: var(--spacing-sm); /* Reduced space above icon on mobile */
+    margin: 0 auto;
+    width: 64px; /* Icon size on mobile */
+    height: 64px; /* Icon size on mobile */
+    margin-bottom: var(--spacing-sm); /* Adjusted space below icon */
+    margin-top: var(--spacing-sm); /* Adjusted space above icon */
   }
 
   .services .icon-box .icon i {
-    font-size: 28px; /* Keep font size on mobile */
+    font-size: 32px; /* Adjusted icon font size on mobile */
   }
 
   .services .icon-box h4 {
-    font-size: var(--font-size-large); /* Keep heading size on mobile */
+    font-size: var(--font-size-medium); /* Adjusted heading size on mobile */
   }
 
   .services .icon-box p {
-    font-size: var(--font-size-base); /* Keep paragraph size on mobile */
+    font-size: var(--font-size-small); /* Adjusted paragraph size on mobile */
   }
 }
+
 
 
 
@@ -1242,19 +1205,55 @@ section {
 }
 /* Mobile Styles */
 @media (max-width: 768px) {
+  /* Center portfolio items vertically and horizontally */
   .portfolio .row {
     display: flex;
     flex-direction: column; /* Stack items vertically */
     align-items: center; /* Center items horizontally */
+    gap: var(--spacing-md); /* Add spacing between items */
   }
 
+  /* Make portfolio items take full width and match team member height */
   .portfolio .portfolio-item {
+    display: flex;
+    justify-content: center; /* Center portfolio items horizontally */
+    align-items: center; /* Center content vertically */
     margin: var(--spacing-md) 0; /* Add vertical margin for spacing */
+    width: 100%; /* Full width of the container */
   }
 
+  /* Set portfolio wrap to have consistent height with team members */
   .portfolio .portfolio-wrap {
     width: 100%; /* Full width of the container */
     max-width: 400px; /* Ensure it doesn't exceed container width */
+    height: 400px; /* Fixed height to match team member container */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    box-shadow: 0px 2px 15px var(--color-box-shadow-light); /* Maintain box shadow for consistency */
+  }
+
+  /* Adjust image within portfolio wrap */
+  .portfolio .portfolio-wrap img {
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 200px; /* Limit height to ensure proper fit */
+    object-fit: cover; /* Ensure image covers area */
+  }
+
+  /* Adjust portfolio info padding */
+  .portfolio .portfolio-info {
+    padding: var(--spacing-md) var(--spacing-sm); /* Adjust padding */
+    text-align: center; /* Center text */
+  }
+
+  /* Adjust font sizes for mobile */
+  .portfolio .portfolio-info h3 {
+    font-size: var(--font-size-medium); /* Adjust font size */
+  }
+
+  .portfolio .portfolio-info p {
+    font-size: var(--font-size-small); /* Adjust font size */
   }
 }
 
@@ -1342,6 +1341,50 @@ section {
   bottom: var(--spacing-md); /* Use variable for spacing */
 }
 
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .team .row {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    gap: var(--spacing-md); /* Add spacing between items */
+  }
+
+  .team .col-lg-3 {
+    flex: 1 1 100%; /* Allow columns to take full width on mobile */
+    max-width: 400px; /* Limit the max width to maintain aspect ratio */
+  }
+
+  .team .member {
+    margin: 0 auto; /* Center the member within the column */
+    width: 100%; /* Full width of the container */
+    max-width: 300px; /* Limit the width for smaller screens */
+  }
+
+  .team .member .member-img img {
+    max-width: 100%; /* Ensure image does not overflow */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  .team .member .social {
+    bottom: var(--spacing-sm); /* Adjust spacing for mobile */
+  }
+
+  .team .member .member-info {
+    padding: var(--spacing-sm) var(--spacing-sm); /* Adjust padding for mobile */
+  }
+
+  .team .member .member-info h3 {
+    font-size: var(--font-size-medium); /* Adjust font size for mobile */
+  }
+
+  .team .member .member-info p {
+    font-size: var(--font-size-small); /* Adjust font size for mobile */
+  }
+}
+
+
+
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
@@ -1349,7 +1392,7 @@ section {
 /* Container styles */
 .contact .row {
   display: flex;
-  flex-direction: column; /* Stack vertically */
+  flex-direction: row; /* Stack vertically */
   gap: var(--spacing-md); /* Add spacing between elements */
 }
 
@@ -1359,12 +1402,7 @@ section {
   align-items: stretch; /* Ensure columns stretch to the same height */
 }
 
-.contact .col-lg-6:first-child {
-  flex-direction: column; /* Column for contact info and form */
-  gap: var(--spacing-md); /* Add spacing between contact info and form */
-}
-
-.contact .info {
+.contact .contact-us {
   background: var(--color-background-dark);
   color: var(--color-text-light);
   border-radius: var(--border-radius-md);
@@ -1372,6 +1410,7 @@ section {
   box-shadow: 0px 2px 15px var(--color-box-shadow-light); /* Use variable for box-shadow */
   flex: 1; /* Allow it to grow and fill available space */
 }
+
 
 .contact .info .email {
   display: flex;
@@ -1397,7 +1436,6 @@ section {
   color: var(--color-text-light);
 }
 
-/* Adjust height of contact info and form */
 
 .contact .contact-form {
   background: var(--color-background-dark);
@@ -1465,6 +1503,7 @@ section {
   margin-top: var(--spacing-md);
   background: var(--color-link);
   color: var(--color-text-light);
+  
 }
 
 .contact .contact-form button:hover {
@@ -1474,7 +1513,7 @@ section {
 
 
 /* Map Container */
-.contact .col-lg-12:last-child {
+.contact .col-lg-6:last-child {
   display: flex;
   align-items: stretch;
   padding: 0; /* Remove padding */
@@ -1485,7 +1524,7 @@ section {
 }
 
 /* Map iframe */
-.contact .col-lg-12:last-child iframe {
+.contact .col-lg-6:last-child iframe {
   width: 100%; /* Full width of the container */
   height: 100%; /* Full height of the container */
   border: none; /* Remove any default border */
