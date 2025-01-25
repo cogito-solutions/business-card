@@ -246,6 +246,7 @@ textarea::placeholder {
   }
 }
 
+
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
@@ -267,9 +268,12 @@ textarea::placeholder {
 }
 
 .back-to-top i {
-  font-size: 24px; /* Adjust icon size */
+  font-size: 20px; /* Icon size */
   color: var(--color-text-light);
+  line-height: 1; /* Ensures no extra vertical space from the icon */
+  vertical-align: middle; /* Corrects alignment within the container */
 }
+
 
 .back-to-top:hover,
 .back-to-top:focus {
@@ -292,6 +296,7 @@ textarea::placeholder {
   opacity: 1;
   transition: opacity var(--transition-default), background-color var(--transition-default);
 }
+
 
 /*--------------------------------------------------------------
 # Preloader
@@ -342,15 +347,15 @@ textarea::placeholder {
   }
 }
 
-/*--------------------------------------------------------------
-# Disable aos animation delay on mobile devices
---------------------------------------------------------------*/
+/* Disable aos animation delay on mobile devices */
 @media screen and (max-width: 768px) {
   [data-aos-delay] {
     transition-delay: 0 !important;
   }
 
 }
+
+
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
@@ -746,6 +751,8 @@ section {
   font-family: "Poppins", sans-serif;
   color: var(--color-text-light); /* Updated color to use variable */
 }
+
+
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
@@ -815,6 +822,7 @@ section {
   }
 }
 
+
 /*--------------------------------------------------------------
 # Features
 --------------------------------------------------------------*/
@@ -844,7 +852,6 @@ section {
   color: var(--color-text-light); /* Slightly lighter gray for better readability */
   margin-left: 60px;
   text-align: justify; /* Add this line to justify the paragraph text */
-
 }
 
 .features .image {
@@ -889,6 +896,8 @@ section {
     min-height: 300px; /* Adjust image height for smaller screens */
   }
 }
+
+
 /*--------------------------------------------------------------
 # Services
 --------------------------------------------------------------*/
@@ -989,9 +998,6 @@ section {
 
 
 
-
-
-
 /*--------------------------------------------------------------
 # Cta
 --------------------------------------------------------------*/
@@ -1041,8 +1047,6 @@ section {
 }
 
 
-
-
 /*--------------------------------------------------------------
 # Portfolio
 --------------------------------------------------------------*/
@@ -1050,6 +1054,8 @@ section {
 /* Portfolio Item */
 .portfolio .portfolio-item {
   margin-top: var(--spacing-md); /* Use variable for consistency */
+  min-height: 400px; /* Adjust to your preferred height */
+
 }
 
 /* Filter Buttons */
@@ -1113,7 +1119,6 @@ section {
   transition: opacity var(--transition-default), color var(--transition-default);
 }
 
-
 .portfolio .portfolio-wrap h3 {
   font-size: var(--font-size-large*2);
   font-weight: 600;
@@ -1126,8 +1131,6 @@ section {
   font-size: 0.75em; /* Slightly smaller font size for superscript */
   vertical-align: super; /* Raise the superscript */
 }
-
-
 
 .portfolio .portfolio-wrap p {
   color: var(--color-text-light);
@@ -1150,8 +1153,6 @@ section {
 .portfolio .portfolio-wrap .portfolio-info ul li {
   margin-bottom: var(--spacing-md); /* Add space between list items */
 }
-
-
 
 /* Portfolio Links */
 .portfolio .portfolio-wrap .portfolio-links {
@@ -1193,16 +1194,16 @@ section {
 
 /* Portfolio Item Wrapper Hover Effect */
 .portfolio .portfolio-wrap:hover {
-  background: rgba(255, 255, 255, 0.05); /* Apply a whitish overlay */
+  background: rgba(20, 20, 20, 0.5); /* Apply a whitish overlay */
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3); /* Adjust shadow for better visibility on hover */
   color: var(--color-text-dark); /* Optional: Adjust text color if needed */
 }
-
 
 /* Portfolio Icon (Hidden by Default) */
 .portfolio-item .portfolio-wrap .portfolio-icon {
   display: none;
 }
+
 /* Mobile Styles */
 @media (max-width: 768px) {
   /* Center portfolio items vertically and horizontally */
@@ -1411,7 +1412,6 @@ section {
   flex: 1; /* Allow it to grow and fill available space */
 }
 
-
 .contact .info .email {
   display: flex;
   align-items: center;
@@ -1436,13 +1436,11 @@ section {
   color: var(--color-text-light);
 }
 
-
 .contact .contact-form {
   background: var(--color-background-dark);
   color: var(--color-text-light);
   padding: var(--spacing-sm);
 }
-
 
 .contact .contact-form h3 {
   margin-bottom: var(--spacing-md);
@@ -1458,14 +1456,27 @@ section {
   margin-bottom: var(--spacing-xs);
 }
 
-.contact .contact-form input,
-.contact .contact-form textarea {
+.contact .contact-form input {
   width: 100%;
   padding: var(--spacing-sm);
   border: 1px solid var(--color-box-shadow-light);
   border-radius: var(--border-radius-sm);
   background: var(--color-background-dark);
   color: var(--color-text-light);
+
+}
+
+.contact .contact-form textarea {
+  width: 100%;
+  height: 100px; /* Approximate height for A4 at 96dpi (1 A4 page at screen resolution) */
+  max-height: 100px; /* Prevent exceeding A4 height */
+  padding: var(--spacing-sm);
+  border: 1px solid var(--color-box-shadow-light);
+  border-radius: var(--border-radius-sm);
+  background: var(--color-background-dark);
+  color: var(--color-text-light);
+  overflow-y: auto; /* Add a vertical scrollbar for overflow text */
+  resize: none; /* Prevent resizing */
 }
 
 .contact .contact-form button {
@@ -1478,7 +1489,6 @@ section {
   background: var(--color-link-hover);
   color: var(--color-background-dark);
 }
-
 
 .contact .contact-form .form-group {
   margin-bottom: var(--spacing-md);
@@ -1511,7 +1521,6 @@ section {
   color: var(--color-background-dark);
 }
 
-
 /* Map Container */
 .contact .col-lg-6:last-child {
   display: flex;
@@ -1530,7 +1539,6 @@ section {
   border: none; /* Remove any default border */
   display: block; /* Ensure no inline space around the iframe */
 }
-
 
 /* Responsive Design */
 @media (max-width: 768px) {
