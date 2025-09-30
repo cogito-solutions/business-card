@@ -90,7 +90,7 @@
         <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
           <div class="col-xl-10 col-lg-8">
             <h1>Data as a Service<br> with <span>.</span>cogito</h1>
-            <h2>Cutting-edge technologies for your business</h2>
+            <h2>Tomorrow's intelligence, today</h2>
           </div>
         </div>
       </div>
@@ -119,13 +119,38 @@
         </div>
       </section>
       <!-- End About Section -->
-
+ 
       <!-- ======= Features Section ======= -->
       <section id="features" class="features" aria-labelledby="features-title">
         <div class="container" data-aos="fade-up">
           <div class="row">
             <div class="image col-lg-6" data-aos="fade-top" aria-hidden="true" role="presentation" aria-label="Features Overview">
-                <img src="src/img/resize.webp" alt="">
+              <aside class="card api-card">
+                <h3>Request an API Key</h3>
+                <p class="muted">Try our demo apps in a safe sandbox. </p>
+
+                <form id="apiKeyInline" method="post" action="/api/request-key" class="form">
+                  <label>
+                    <span>Email</span>
+                    <input type="email" name="email" autocomplete="email" required />
+                  </label>
+
+                  <label class="consent">
+                    <input type="checkbox" name="consent" required />
+                    <span>I agree to the processing of my data to fulfill this request.</span>
+                  </label>
+
+                  <button type="submit" class="btn btn--primary">Request</button>
+                  <p class="tiny">We never sell your data. <a href="privacy-policy.html">Privacy Policy</a></p>
+                </form>
+
+                <div id="apiKeyInlineSuccess" class="success hidden" role="status" aria-live="polite">
+                  <h4>Check your inbox</h4>
+                  <p class="muted">We’ve sent your API key or next steps to your email.</p>
+                  <a href="#contact" class="btn btn--ghost">Prefer to talk? Contact us</a>
+                </div>
+              </aside>
+
             </div>
             <div class="col-lg-6" data-aos-delay="10">
               <div class="icon-box mt-5" data-aos="fade-left" data-aos-delay="150">
@@ -144,13 +169,13 @@
                 </p>
               </div>
 
-              <div class="icon-box mt-5" data-aos="fade-left" data-aos-delay="150">
+              <!-- <div class="icon-box mt-5" data-aos="fade-left" data-aos-delay="150">
                 <i class="bx bx-user-check" aria-hidden="true"></i>
                 <h4>Customer-Centric Approach</h4>
                 <p>
                   We design every solution around your specific goals, challenges, and workflows — ensuring that our AI and automation tools deliver real value to your business.
                 </p>
-              </div>
+              </div> -->
 
               <div class="icon-box mt-5" data-aos="fade-left" data-aos-delay="150">
                 <i class="bx bx-time" aria-hidden="true"></i>
@@ -446,7 +471,29 @@
 
     <div id="preloader"></div>
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
+<script>
+  // progressive enhancement: inline submit without reload
+  (function () {
+    const form = document.getElementById('apiKeyInline');
+    if (!form) return;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true; btn.textContent = 'Sending…';
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: data });
+        if (!res.ok) throw new Error('Request failed');
+        form.classList.add('hidden');
+        document.getElementById('apiKeyInlineSuccess').classList.remove('hidden');
+      } catch (err) {
+        alert('Sorry, something went wrong. Please try again or use the Contact form below.');
+      } finally {
+        btn.disabled = false; btn.textContent = 'Send Request';
+      }
+    });
+  })();
+</script>
     <!-- Libs -->
     <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounter.js/dist/purecounter_vanilla.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
