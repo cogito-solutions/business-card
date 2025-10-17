@@ -472,28 +472,96 @@
     <div id="preloader"></div>
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 <script>
-  // progressive enhancement: inline submit without reload
   (function () {
     const form = document.getElementById('apiKeyInline');
     if (!form) return;
+
+    const TARGET_URL = form.getAttribute('action')
+
+    const successEl = document.getElementById('apiKeyInlineSuccess');
+    const errorEl = document.getElementById('apiKeyInlineError'); // optional <div id="apiKeyInlineError"></div>
+
+    function getField(name) {
+      return form.querySelector(`[name="${name}"]`);
+    }
+
+    function showError(msg) {
+      if (errorEl) {
+        errorEl.textContent = msg || 'An error occurred. Please try again later.';
+        errorEl.classList.remove('hidden');
+      } else {
+        alert(msg || 'An error occurred. Please try again later.');
+      }
+    }
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const data = new FormData(form);
+
+      // Collect fields explicitly (avoid multipart)
+      const email = (getField('email')?.value || '').trim();
+      const consent = !!getField('consent')?.checked;
+      if (!consent) {
+        showError('You must agree to the processing of your data to fulfill this request.');
+        return;
+      }
+
+      // Very basic client-side check
+      if (!email || !email.includes('@')) {
+        showError('Please enter a valid email address.');
+        return;
+      }
+
       const btn = form.querySelector('button[type="submit"]');
-      btn.disabled = true; btn.textContent = 'Sending…';
+      if (btn?.disabled) return; // guard double clicks
+
+      // Prepare request
+      const payload = { email };
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 15000); // 15s
+
+      if (errorEl) errorEl.classList.add('hidden');
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+
       try {
-        const res = await fetch(form.action, { method: 'POST', body: data });
-        if (!res.ok) throw new Error('Request failed');
+        const res = await fetch(TARGET_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload),
+          credentials: 'same-origin', // no cookies sent cross-origin
+          signal: controller.signal
+        });
+
+        // Try to read a JSON error message if not OK
+        if (!res.ok) {
+          let message = `Request failed (${res.status})`;
+          try {
+            const data = await res.json();
+            if (data?.error || data?.message) message = data.error || data.message;
+          } catch {
+            try {
+              const text = await res.text();
+              if (text) message = text.slice(0, 300);
+            } catch {}
+          }
+          throw new Error(message);
+        }
+
+        // Success -> hide form, show success
         form.classList.add('hidden');
-        document.getElementById('apiKeyInlineSuccess').classList.remove('hidden');
+        successEl?.classList.remove('hidden');
       } catch (err) {
-        alert(err.message || 'An error occurred. Please try again later.');
+        showError(err?.message || 'Network error. Please try again.');
       } finally {
-        btn.disabled = false; btn.textContent = 'Send Request';
+        clearTimeout(timeout);
+        if (btn) { btn.disabled = false; btn.textContent = 'Send Request'; }
       }
     });
   })();
 </script>
+
     <!-- Libs -->
     <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounter.js/dist/purecounter_vanilla.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
