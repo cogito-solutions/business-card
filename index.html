@@ -126,13 +126,14 @@
           <div class="row">
             <div class="image col-lg-6" data-aos="fade-top" aria-hidden="true" role="presentation" aria-label="Features Overview">
               <aside class="card api-card">
-                <h3>Request an API Key</h3>
-                <p class="muted">Try our demo apps in a safe sandbox. </p>
+
 
                 <form id="apiKeyInline" method="post" action="https://auth.cogito-tech.eu/request" class="form">
+                  
+                  <h3>Request an API Key</h3>
+                  <p class="muted">Try our demo apps in a safe sandbox. </p>
                   <label>
-                    <span>Email</span>
-                    <input type="email" name="email" autocomplete="email" required />
+                    <input type="email" name="email" placeholder="Email" autocomplete="email" required />
                   </label>
 
                   <label class="consent">
@@ -141,13 +142,13 @@
                   </label>
 
                   <button type="submit" class="btn btn--primary">Request</button>
-                  <p class="tiny">We never sell your data. <a href="privacy-policy.html">Privacy Policy</a></p>
+                  <p class="tiny">We do not store your data. <a href="privacy-policy.html">Privacy Policy</a></p>
                 </form>
 
                 <div id="apiKeyInlineSuccess" class="success hidden" role="status" aria-live="polite">
                   <h4>Check your inbox</h4>
                   <p class="muted">We’ve sent your API key or next steps to your email.</p>
-                  <a href="#contact" class="btn btn--ghost">Prefer to talk? Contact us</a>
+                  <a href="#portfolio" class="btn btn--ghost">Explore our projects</a>
                 </div>
               </aside>
 
@@ -401,6 +402,11 @@
                 <label for="message" hidden>Message</label>
                 <textarea id="message" name="message" rows="5" placeholder="" required></textarea>
               </div>
+                  <label class="consent">
+                    <input type="checkbox" name="consent" required />
+                    <span>I agree to the processing of my data to fulfill this request.</span>
+                  </label>
+                  
                 <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
               <button type="submit" class="cta-btn">Contact us!</button>
             </form>
@@ -471,96 +477,7 @@
 
     <div id="preloader"></div>
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-<script>
-  (function () {
-    const form = document.getElementById('apiKeyInline');
-    if (!form) return;
 
-    const TARGET_URL = form.getAttribute('action')
-
-    const successEl = document.getElementById('apiKeyInlineSuccess');
-    const errorEl = document.getElementById('apiKeyInlineError'); // optional <div id="apiKeyInlineError"></div>
-
-    function getField(name) {
-      return form.querySelector(`[name="${name}"]`);
-    }
-
-    function showError(msg) {
-      if (errorEl) {
-        errorEl.textContent = msg || 'An error occurred. Please try again later.';
-        errorEl.classList.remove('hidden');
-      } else {
-        alert(msg || 'An error occurred. Please try again later.');
-      }
-    }
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      // Collect fields explicitly (avoid multipart)
-      const email = (getField('email')?.value || '').trim();
-      const consent = !!getField('consent')?.checked;
-      if (!consent) {
-        showError('You must agree to the processing of your data to fulfill this request.');
-        return;
-      }
-
-      // Very basic client-side check
-      if (!email || !email.includes('@')) {
-        showError('Please enter a valid email address.');
-        return;
-      }
-
-      const btn = form.querySelector('button[type="submit"]');
-      if (btn?.disabled) return; // guard double clicks
-
-      // Prepare request
-      const payload = { email };
-      const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 15000); // 15s
-
-      if (errorEl) errorEl.classList.add('hidden');
-      if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
-
-      try {
-        const res = await fetch(TARGET_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify(payload),
-          credentials: 'same-origin', // no cookies sent cross-origin
-          signal: controller.signal
-        });
-
-        // Try to read a JSON error message if not OK
-        if (!res.ok) {
-          let message = `Request failed (${res.status})`;
-          try {
-            const data = await res.json();
-            if (data?.error || data?.message) message = data.error || data.message;
-          } catch {
-            try {
-              const text = await res.text();
-              if (text) message = text.slice(0, 300);
-            } catch {}
-          }
-          throw new Error(message);
-        }
-
-        // Success -> hide form, show success
-        form.classList.add('hidden');
-        successEl?.classList.remove('hidden');
-      } catch (err) {
-        showError(err?.message || 'Network error. Please try again.');
-      } finally {
-        clearTimeout(timeout);
-        if (btn) { btn.disabled = false; btn.textContent = 'Send Request'; }
-      }
-    });
-  })();
-</script>
 
     <!-- Libs -->
     <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounter.js/dist/purecounter_vanilla.js"></script>
@@ -571,6 +488,7 @@
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.min.js"></script>
   <!-- Template Main JS File -->
     <script src="src/js/main.js"></script>
+    <script src="src/js/api-request-form.js "></script>
 </body>
 
 </html>

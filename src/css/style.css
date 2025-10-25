@@ -888,6 +888,24 @@ section {
   padding: clamp(16px, 3vw, 24px);
   box-shadow: 0 4px 16px rgba(0,0,0,.15);
 }
+.features .api-card {
+  width: var(--api-card-width);
+  max-width: var(--api-card-max-width);
+  height: var(--api-card-height);   /* <-- fixed height */
+  display: grid;                     /* easy centering/layout */
+  align-content: start;              /* or center if you prefer */
+  overflow: hidden;                  /* prevent layout jump */
+}
+/* Make both states fill the card area identically */
+.features .api-card .form,
+.features .api-card .success {
+  height: 100%;
+  display: grid;
+  gap: 6px;
+  align-content: start; /* or center */
+  overflow: auto;       /* scroll if content ever exceeds fixed height */
+}
+
 .features .api-card h3 {
   margin: 0 0 6px;
 }
@@ -925,7 +943,7 @@ input[type="email"]::placeholder {
 .features .consent {
   grid-auto-flow: column;
   align-items: start;
-  gap: 10px;
+  /* gap: 10px; */
 }
 
 /* Buttons */
@@ -975,7 +993,11 @@ input[type="email"]::placeholder {
   }
 }
 
-
+:root {
+  --api-card-width: 100%;
+  --api-card-max-width: 520px;
+  --api-card-height: 320px; /* adjust as you like */
+}
 
 
 
