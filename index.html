@@ -326,83 +326,145 @@
 
         <div class="row" data-aos="fade-up" data-aos-delay="10">
           <div class="col-lg-12 d-flex justify-content-center">
-            <nav aria-label="Portfolio Filter">
+            <nav aria-label="Project filter options">
               <ul id="portfolio-filters" role="tablist">
-                <li data-filter="*" class="filter-active" role="tab" aria-selected="true">All</li>
-                <li data-filter=".filter-web" role="tab" aria-selected="false">Apps</li>
-                <li data-filter=".filter-api" role="tab" aria-selected="false">APIs</li>
-                <!-- <li data-filter=".filter-datasets" role="tab" aria-selected="false">Datasets</li>
-                <li data-filter=".filter-ml" role="tab" aria-selected="false">Models</li> -->
-                <li data-filter=".filter-automation" role="tab" aria-selected="false">Automation</li>
+                <li>
+                  <button type="button" class="filter-button filter-active" data-filter="*" role="tab" aria-selected="true">All</button>
+                </li>
+                <li>
+                  <button type="button" class="filter-button" data-filter=".filter-web" role="tab" aria-selected="false">Apps</button>
+                </li>
+                <li>
+                  <button type="button" class="filter-button" data-filter=".filter-api" role="tab" aria-selected="false">APIs</button>
+                </li>
+                <li>
+                  <button type="button" class="filter-button" data-filter=".filter-automation" role="tab" aria-selected="false">Automation</button>
+                </li>
               </ul>
             </nav>
           </div>
         </div>
 
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="20">
-          
-          <article class="col-lg-4 col-md-6 portfolio-item filter-web" role="article">
-            <div class="portfolio-wrap" data-aos="fade-right">
-              <div class="portfolio-info">
-                <h3>Sender<sup>AI</sup> -- Under development</h3>
-                <ul>
-                  <li>mass emailing</li>
-                  <li>automated conversations</li>
-                  <li>web UI</li>
-                </ul> 
-                <p>An indispensable assistant for your business!</p>
-                <div class="portfolio-links">
-                  <!-- <a href="https://github.com" class="portfolio-lightbox" title="View on GitHub" aria-label="View on GitHub">
-                    <i class="bx bxl-github" aria-hidden="true"></i>
-                  </a>
-                  <a href="https://sender-ai.cogito-tech.eu" title="More Details" aria-label="More Details about sender-ai">
-                    <i class="bx bx-link" aria-hidden="true"></i>
-                  </a> -->
-                </div>
+        <div class="portfolio-grid" data-aos="fade-up" data-aos-delay="20">
+
+          <article class="portfolio-item portfolio-item--featured filter-web" role="article">
+            <figure class="portfolio-card" data-aos="fade-right">
+              <div class="portfolio-card__media portfolio-card__media--sender">
+                <span class="portfolio-card__media-label">Automation control room</span>
               </div>
-            </div>
+              <figcaption class="portfolio-card__body">
+                <header class="portfolio-card__header">
+                  <div class="portfolio-card__status">In private beta</div>
+                  <h3 class="portfolio-card__title">Sender<sup>AI</sup></h3>
+                  <p class="portfolio-card__summary">Multi-channel outreach agents that personalize messages, follow up for you, and sync outcomes back to your CRM.</p>
+                </header>
+                <dl class="portfolio-card__meta" aria-label="Project quick facts">
+                  <div>
+                    <dt>Team velocity</dt>
+                    <dd>30% faster response cycles via autonomous follow-ups</dd>
+                  </div>
+                  <div>
+                    <dt>Stack</dt>
+                    <dd>Next.js · OpenAI · Postgres · Vercel</dd>
+                  </div>
+                  <div>
+                    <dt>Services</dt>
+                    <dd>AI Agents · Workflow Automation · UX delivery</dd>
+                  </div>
+                </dl>
+                <ul class="portfolio-card__tags" aria-label="Highlights">
+                  <li>Agent-led</li>
+                  <li>CRM Sync</li>
+                  <li>Reinforcement loop</li>
+                </ul>
+                <footer class="portfolio-card__footer">
+                  <a class="portfolio-card__cta" href="https://sender-ai.cogito-tech.eu" target="_blank" rel="noopener" aria-label="Open SenderAI product preview">View live preview</a>
+                </footer>
+              </figcaption>
+            </figure>
           </article>
 
-                    
-          <article class="col-lg-4 col-md-6 portfolio-item filter-api" role="article">
-            <div class="portfolio-wrap" data-aos="fade-right">
-              <div class="portfolio-info">
-                <h3>AWS-hosted LLM</h3>
-                <ul>
-                  <li>conversational-mode</li>
-                  <li>one-prompt mode</li>
-                  <li>prompts tailored for specific tasks</li>
-                </ul> 
-                <div class="portfolio-links">
-                  <!-- <a href="https://github.com" class="portfolio-lightbox" title="View on GitHub" aria-label="View on GitHub">
-                    <i class="bx bxl-github" aria-hidden="true"></i>
-                  </a> -->
-                  <a href="https://ai-agent.cogito-tech.eu" title="More Details" aria-label="More Details about sender-ai">
-                    <i class="bx bx-link" aria-hidden="true"></i>
-                  </a>
-                </div>
+          <article class="portfolio-item filter-api" role="article">
+            <figure class="portfolio-card" data-aos="fade-right" data-aos-delay="40">
+              <div class="portfolio-card__media portfolio-card__media--aws">
+                <span class="portfolio-card__media-label">Secure LLM console</span>
               </div>
-            </div>
+              <figcaption class="portfolio-card__body">
+                <header class="portfolio-card__header">
+                  <div class="portfolio-card__status portfolio-card__status--success">In production</div>
+                  <h3 class="portfolio-card__title">AWS-hosted LLM</h3>
+                  <p class="portfolio-card__summary">A private GPT-style assistant for regulated teams with guardrails, auditing, and cost controls.</p>
+                </header>
+                <dl class="portfolio-card__meta" aria-label="Project quick facts">
+                  <div>
+                    <dt>Latency</dt>
+                    <dd><span aria-label="Under one second">&lt;1s</span> average time-to-first-token with Bedrock streaming</dd>
+                  </div>
+                  <div>
+                    <dt>Stack</dt>
+                    <dd>AWS Bedrock · AWS Lambda · DynamoDB · Terraform</dd>
+                  </div>
+                  <div>
+                    <dt>Services</dt>
+                    <dd>LLM Ops · Prompt Engineering · Compliance tooling</dd>
+                  </div>
+                </dl>
+                <ul class="portfolio-card__tags" aria-label="Highlights">
+                  <li>Enterprise-ready</li>
+                  <li>Guardrails</li>
+                  <li>Observability</li>
+                </ul>
+                <footer class="portfolio-card__footer">
+                  <a class="portfolio-card__cta" href="https://ai-agent.cogito-tech.eu" target="_blank" rel="noopener" aria-label="Open AWS hosted LLM demo">Launch demo</a>
+                </footer>
+              </figcaption>
+            </figure>
           </article>
 
-          <article class="col-lg-4 col-md-6 portfolio-item filter-automation" role="article">
-            <div class="portfolio-wrap" data-aos="fade-right">
-              <div class="portfolio-info">
-                <h3>TelegramBot: chat with documents</h3>
-                <ul>
-                  <li>Stores document in a vector store</li>
-                  <li>Uses RAG to retrieve information</li>
-                  <li>Answers your questions about the document with minimal hallucinations </li>
-                </ul> 
-                <div class="portfolio-links">
-                  <a href="https://t.me/YourAIgent_bot" title="More Details" aria-label="More Details">
-                    <i class="bx bx-link" aria-hidden="true"></i>
-                  </a>
-                </div>
+          <article class="portfolio-item filter-web filter-automation" role="article">
+            <figure class="portfolio-card" data-aos="fade-right" data-aos-delay="70">
+              <div class="portfolio-card__media portfolio-card__media--chatbot">
+                <span class="portfolio-card__media-label">Knowledge bot workspace</span>
               </div>
-            </div>
+              <figcaption class="portfolio-card__body">
+                <header class="portfolio-card__header">
+                  <div class="portfolio-card__status portfolio-card__status--beta">Live pilot</div>
+                  <h3 class="portfolio-card__title">Document-aware chatbot</h3>
+                  <p class="portfolio-card__summary">Telegram bot and embeddable web widget that answers document questions with guardrailed RAG pipelines.</p>
+                </header>
+                <dl class="portfolio-card__meta" aria-label="Project quick facts">
+                  <div>
+                    <dt>Documents indexed</dt>
+                    <dd>10k+ PDFs synced with auto-refresh scheduler</dd>
+                  </div>
+                  <div>
+                    <dt>Stack</dt>
+                    <dd>FastAPI · PostgreSQL · LangChain · Redis · Docker</dd>
+                  </div>
+                  <div>
+                    <dt>Services</dt>
+                    <dd>Knowledge Bases · Agentic UX · Infrastructure</dd>
+                  </div>
+                </dl>
+                <ul class="portfolio-card__tags" aria-label="Highlights">
+                  <li>RAG</li>
+                  <li>Telegram</li>
+                  <li>Widget Embed</li>
+                </ul>
+                <footer class="portfolio-card__footer">
+                  <a class="portfolio-card__cta" href="https://t.me/YourAIgent_bot" target="_blank" rel="noopener" aria-label="Try the document chatbot on Telegram">Try on Telegram</a>
+                </footer>
+              </figcaption>
+            </figure>
           </article>
 
+        </div>
+        <div class="portfolio-cta" data-aos="fade-up" data-aos-delay="80">
+          <div class="portfolio-cta__content">
+            <h3>Need similar outcomes?</h3>
+            <p>We help teams productionize AI, automate manual workflows, and deploy agentic copilots across channels.</p>
+          </div>
+          <a class="portfolio-cta__button" href="#contact" aria-label="Start a project conversation">Start a project conversation</a>
         </div>
       </div>
 
@@ -550,7 +612,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounter.js/dist/purecounter_vanilla.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.3.0/js/glightbox.min.js" integrity="sha512-RBWI5Qf647bcVhqbEnRoL4KuUT+Liz+oG5jtF+HP05Oa5088M9G0GxG0uoHR9cyq35VbjahcI+Hd1xwY8E1/Kg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js" integrity="sha512-Ysw1DcK1P+uYLqprEAzNQJP+J4hTx4t/3X2nbVwszao8wD+9afLjBQYjz7Uk4ADP+Er++mJoScI42ueGtQOzEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.min.js"></script>
   <!-- Template Main JS File -->

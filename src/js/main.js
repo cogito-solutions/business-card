@@ -286,38 +286,53 @@ document.addEventListener('click', function(e) {
   // }
 
   /**
-   * Portfolio isotope and filter
+   * Portfolio filter controls
    */
   window.addEventListener('load', () => {
-    const portfolioContainer = select('.portfolio-container');
-    if (!portfolioContainer) {
-      console.info('No portfolio items', error);
-      return null
+    const portfolioGrid = select('.portfolio-grid');
+    const portfolioItems = select('.portfolio-item', true);
+    const portfolioFilters = select('#portfolio-filters .filter-button', true);
+
+    if (!portfolioGrid || !portfolioItems.length || !portfolioFilters.length) {
+      console.info('Portfolio grid or filters not found, skipping filter setup.');
+      return;
     }
 
-    try {
-      const portfolioIsotope = new Isotope(portfolioContainer, {
-        itemSelector: '.portfolio-item'
+    const applyFilter = (filterValue) => {
+      portfolioItems.forEach(item => {
+        const matches = filterValue === '*' || item.matches(filterValue);
+        if (matches) {
+          item.classList.remove('portfolio-item--hidden');
+          item.removeAttribute('hidden');
+        } else {
+          item.classList.add('portfolio-item--hidden');
+          item.setAttribute('hidden', 'true');
+        }
       });
 
-      const portfolioFilters = select('#portfolio-filters li', true);
+      requestAnimationFrame(() => AOS.refresh());
+    };
 
-      on('click', '#portfolio-filters li', function(e) {
-        e.preventDefault();
-        portfolioFilters.forEach(el => el.classList.remove('filter-active'));
-        this.classList.add('filter-active');
+    on('click', '#portfolio-filters .filter-button', function(e) {
+      e.preventDefault();
+      const targetButton = this;
+      const filterValue = targetButton.getAttribute('data-filter') || '*';
 
-        portfolioIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-        portfolioIsotope.on('arrangeComplete', () => {
-          AOS.refresh();
-        });
-      }, true);
-    } catch (error) {
-      console.error('Failed to initialize portfolio isotope:', error);
+      portfolioFilters.forEach(btn => {
+        btn.classList.remove('filter-active');
+        btn.setAttribute('aria-selected', 'false');
+      });
+
+      targetButton.classList.add('filter-active');
+      targetButton.setAttribute('aria-selected', 'true');
+
+      applyFilter(filterValue);
+    }, true);
+
+    const activeButton = portfolioFilters.find(btn => btn.classList.contains('filter-active')) || portfolioFilters[0];
+    if (activeButton) {
+      applyFilter(activeButton.getAttribute('data-filter') || '*');
     }
-    
   });
 
   /**
