@@ -103,92 +103,86 @@
         <div class="container" data-aos="fade-up">
           <div class="row">
             <div class="col-lg-12 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="0">
-              <h3 id="about-title">.cogito: Tomorrow's intelligence, today</h3>
+              <h3 id="about-title">Automate. Optimize. Scale — with .cogito</h3>
               <p>
-                At <strong>.cogito</strong>, we specialize in delivering data-driven and Generative AI solutions that empower businesses through intelligent automation, custom AI agents, and scalable software systems. 
-                By harnessing cutting-edge technologies such as OpenAI, LangChain, and cloud platforms like AWS and Google Cloud, we provide tailored strategies that solve real-world challenges. 
-              </p>
-              <p class="fst-italic">
-                In a world shaped by rapid innovation, we believe technology should serve people — making life simpler, smarter, and more meaningful.
+                At <strong>.cogito</strong>, we build AI automation systems, data pipelines, and custom agents that help businesses save time, cut costs, and make better decisions.
               </p>
               <p>
                 Our team of experts is dedicated to understanding your unique needs and delivering solutions that not only meet your expectations, but exceed them. 
-                Whether you're looking to automate processes, develop custom AI models, or create intelligent applications, we have the expertise and tools to help you succeed.
             </div>
           </div>
         </div>
       </section>
       <!-- End About Section -->
  
-      <!-- ======= Features Section ======= -->
-      <section id="features" class="features" aria-labelledby="features-title">
-        <div class="container" data-aos="fade-up">
-          <div class="row">
-            <div class="image col-lg-6" data-aos="fade-top" aria-hidden="true" role="presentation" aria-label="Features Overview">
-              <aside class="card api-card">
+        <!-- ======= Features Section ======= -->
+        <section id="features" class="features" aria-labelledby="features-title">
+          <div class="container" data-aos="fade-up">
+            <header class="features__header">
+              <h4 id="features-title">Two fast ways to get started</h4>
+              <p>Request sandbox access or hop on a call with our team.</p>
+            </header>
 
-
-                <form id="apiKeyInline" method="post" action="https://auth.cogito-tech.eu/request" class="form">
-                  
-                  <h3>Request an API Key</h3>
-                  <p class="muted">Try our demo apps in a safe sandbox. </p>
-                  <label>
-                    <input type="email" name="email" placeholder="Email" autocomplete="email" required />
-                  </label>
-
-                  <label class="consent">
-                    <input type="checkbox" name="consent" required />
-                    <span>I agree to the processing of my data to fulfill this request.</span>
-                  </label>
-
-                  <button type="submit" class="btn btn--primary">Request</button>
-                  <p class="tiny">We do not store your data. <a href="privacy-policy.html">Privacy Policy</a></p>
-                </form>
-
-                <div id="apiKeyInlineSuccess" class="success hidden" role="status" aria-live="polite">
-                  <h4>Check your inbox</h4>
-                  <p class="muted">We’ve sent your API key or next steps to your email.</p>
-                  <a href="#portfolio" class="btn btn--ghost">Explore our projects</a>
-                </div>
-              </aside>
-
-            </div>
-            <div class="col-lg-6" data-aos-delay="10">
-              <div class="icon-box mt-5" data-aos="fade-left" data-aos-delay="150">
-                <i class="bx bx-wallet" aria-hidden="true"></i>
-                <h4>Cost-Effectiveness</h4>
-                <p>
-                  We design and implement AI solutions with a strong focus on cost-efficiency — choosing the right tools, infrastructure, and strategies to maximize value while minimizing expenses.
-                </p>
-              </div>
-              <div class="icon-box mt-5" data-aos="fade-left" data-aos-delay="150">
-                <i class="bx bx-analyse" aria-hidden="true"></i>
-                <h4>Innovation & Technology Adoption</h4>
-                <p>
-                  We leverage state-of-the-art technologies including OpenAI API, LangChain, FastAPI, Docker, and cloud platforms like AWS, Google Cloud, and Azure. 
-                  Our stack is designed to deliver scalable, efficient, and future-proof AI solutions.
-                </p>
+            <div class="row g-4 align-items-stretch">
+              <div class="col-lg-6" data-aos="fade-up">
+                <article class="feature-card" aria-labelledby="feature-api-title">
+                  <form
+                    id="apiKeyInline"
+                    method="post"
+                    action="https://auth.cogito-tech.eu/request"
+                    class="feature-form"
+                    aria-describedby="feature-api-lead"
+                  >
+                    <h3 id="feature-api-title" class="feature-card__title">Request an API Key</h3>
+                    <p id="feature-api-lead" class="feature-card__subtitle">Try our demo apps in a safe sandbox.</p>
+                    <label class="feature-field">
+                      <span class="feature-field__label">Email</span>
+                      <input type="email" name="email" placeholder="you@company.com" autocomplete="email" required />
+                    </label>
+                    <label class="feature-checkbox">
+                      <input type="checkbox" name="consent" required />
+                      <span>I agree to the processing of my data to fulfill this request.</span>
+                    </label>
+                    <div class="feature-cta">
+                      <div id="apiKeyInlineError" class="feature-message feature-message--error hidden" role="alert"></div>
+                      <button type="submit" class="feature-button feature-button--primary">Send Request</button>
+                      <p class="feature-caption">We do not store your data. <a href="privacy-policy.html">Privacy Policy</a></p>
+                    </div>
+                  </form>
+                  <div id="apiKeyInlineSuccess" class="feature-state hidden" role="status" aria-live="polite">
+                    <h4 class="feature-card__title">Check your inbox</h4>
+                    <p class="feature-card__subtitle">We’ve sent your API key or next steps to your email.</p>
+                    <div class="feature-cta">
+                      <a href="#portfolio" class="feature-button feature-button--ghost">Explore our projects</a>
+                    </div>
+                  </div>
+                </article>
               </div>
 
-              <!-- <div class="icon-box mt-5" data-aos="fade-left" data-aos-delay="150">
-                <i class="bx bx-user-check" aria-hidden="true"></i>
-                <h4>Customer-Centric Approach</h4>
-                <p>
-                  We design every solution around your specific goals, challenges, and workflows — ensuring that our AI and automation tools deliver real value to your business.
-                </p>
-              </div> -->
-
-              <div class="icon-box mt-5" data-aos="fade-left" data-aos-delay="150">
-                <i class="bx bx-time" aria-hidden="true"></i>
-                <h4>Rapid Development</h4>
-                <p>We prioritize quick turnarounds while maintaining high quality and flexibility.</p>
+              <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                <article class="feature-card" aria-labelledby="feature-consult-title">
+                  <h3 id="feature-consult-title" class="feature-card__title">Book a Free Consultation</h3>
+                  <p class="feature-card__subtitle">
+                    Talk to our AI architect about automating your workflows.
+                  </p>
+                  <ul class="feature-list">
+                    <li>Identify 2–3 automation quick wins</li>
+                    <li>Get a rough timeline &amp; budget</li>
+                    <li>No obligations</li>
+                  </ul>
+                  <div class="feature-cta">
+                    <a href="#contact" class="feature-button feature-button--primary">
+                      Book a Call
+                    </a>
+                  </div>
+                  <p class="feature-caption"></p>
+                  <p class="feature-caption"></p>
+                </article>
               </div>
-
             </div>
           </div>
-        </div>
-      </section>
-      <!-- End Features Section -->
+        </section>
+        <!-- End Features Section -->
 
   <!-- ======= Services Section ======= -->
   <section id="services" class="services" role="region" aria-labelledby="services-title">
@@ -205,10 +199,12 @@
               <div class="icon">
                 <i class="bx bx-search-alt" aria-hidden="true"></i>
               </div>
-                <h4>Data Mining</h4>
-                <p>
-                  Automated data collection, cleansing, and precise labeling to create high-quality datasets for AI, machine learning, and business analytics. 
-                </p>
+                <h4>Data Intelligence & Pipelines</h4>
+                  <ul>
+                    <li>Automated web/API data gathering</li>
+                    <li>Cleaning, labeling, and semantic enrichment</li>
+                    <li>Real-time dashboards and alerting systems</li>
+                  </ul>
             </a>
           </div>
         </div>
@@ -220,9 +216,11 @@
                 <i class="bx bx-cube-alt" aria-hidden="true"></i>
               </div>
               <h4>Custom AI Model Development</h4>
-              <p>
-                Training models on proprietary data to deploying scalable solutions in the cloud (AWS, Azure, and Google Cloud, private servers)
-              </p>
+              <ul>
+                <li>Fine-tuning and prompt engineering for LLMs</li>
+                <li>Computer vision, NLP, and time-series models</li>
+                <li>Model evaluation, monitoring, and retraining</li>
+              </ul>
             </a>
           </div>
         </div>
@@ -233,8 +231,12 @@
               <div class="icon">
                 <i class="bx bx-sync" aria-hidden="true"></i>
               </div>
-              <h4>AI automation</h4>
-              <p>  Automate your business workflows using AI-powered integrations with platforms like Telegram, Slack, WhatsApp, and web apps via LLM APIs (OpenAI, Claude, etc) to boost efficiency and reduce manual effort.</p>
+              <h4>AI Process Automation</h4>
+              <ul>
+                <li>Reduce manual workload by 30–70%</li>
+                <li>Integrate with CRMs, ERP, and email systems</li>
+                <li>Custom bots and task orchestration via API or UI</li>
+              </ul>
             </a>
           </div>
         </div>
@@ -245,10 +247,12 @@
               <div class="icon">
                 <i class="bx bx-brain" aria-hidden="true"></i>
               </div>
-              <h4>AI Agent development</h4>
-              <p>
-                We build custom AI agents powered by large language models (LLMs) to handle tasks like customer support, data analysis, content generation, and more — tailored to your business needs.
-              </p>
+              <h4>AI Agents & Custom Integrations</h4>
+              <ul>
+                <li>LLM-based support and analytics agents</li>
+                <li>Integration with Slack, Telegram, Google Services or internal tools</li>
+                <li>Low-latency AWS infrastructure and monitoring</li>
+              </ul>
             </a>
           </div>
         </div>
@@ -256,22 +260,20 @@
 
     </div>
   </section>
+  <!-- ======= End Services Section ======= -->
 
-    <!-- End Services Section -->
+  <!-- ======= Cta Section ======= -->
+  <section id="cta" class="cta" role="region" aria-labelledby="cta-title">
+    <div class="container" data-aos="zoom-in">
 
-    <!-- ======= Cta Section ======= -->
-    <section id="cta" class="cta" role="region" aria-labelledby="cta-title">
-      <div class="container" data-aos="zoom-in">
+      <div class="text-center">
+        <h4 id="cta-title">Book a free consultation!</h4>
+        <a class="cta-btn" href="#contact" role="button" aria-label="Contact us">Contact Us</a>
+      </div>
 
-        <div class="text-center">
-          <h4 id="cta-title">Build an AI Future with .cogito</h4>
-          <a class="cta-btn" href="#contact" role="button" aria-label="Contact us">Contact Us</a>
-        </div>
-
-      </div>     
-    </section>
-    <!-- End Cta Section -->
-
+    </div>     
+  </section>
+  <!-- ======= End Cta Section ======= -->
 
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio" aria-labelledby="portfolio-title">
@@ -349,7 +351,7 @@
                 <ul>
                   <li>Stores document in a vector store</li>
                   <li>Uses RAG to retrieve information</li>
-                  <li>Answers your questions about the document with no halllucination </li>
+                  <li>Answers your questions about the document with minimal hallucinations </li>
                 </ul> 
                 <div class="portfolio-links">
                   <a href="https://t.me/YourAIgent_bot" title="More Details" aria-label="More Details">
@@ -375,41 +377,72 @@
       <h2 id="contact-title">Contact Us</h2>
     </header>
 
-    <div class="row mt-5">
-      <div class="col-lg-6 d-flex flex-column align-items-stretch" data-aos="fade-right">
-        <div class="contact-us">
+    <div class="row gy-5 align-items-start contact-layout">
+      <div class="col-lg-5">
+        <aside class="contact-card" data-aos="fade-right">
+          <h3 class="contact-card__title">Tell us about your workflow</h3>
+          <p class="contact-card__lead">Share a quick brief and we’ll set up a discovery call tailored to your team.</p>
+          <ul class="contact-card__list">
+            <li>
+              <span class="contact-card__label">Response time</span>
+              <span>Within 24 hours on business days</span>
+            </li>
 
-          <div class="contact-form mt-4">
-            <form action="https://api.web3forms.com/submit" method="post">
-              <input type="hidden" name="access_key" value="fe0ace9f-f1b1-4e4e-b7ef-24a4e7a9fbaa">
+            <li>
+              <span class="contact-card__label">HQ</span>
+              <span>Warsaw, Poland · Remote first</span>
+            </li>
+          </ul>
+        </aside>
+      </div>
 
-              <div class="form-group">
-                <label for="name" hidden>Name</label>
-                <input type="text" id="name" name="name" placeholder="Name" required>
+      <div class="col-lg-7">
+        <div class="contact-panel" data-aos="fade-left">
+          <form id="contactForm" class="contact-form" action="https://api.web3forms.com/submit" method="post">
+            <input type="hidden" name="access_key" value="fe0ace9f-f1b1-4e4e-b7ef-24a4e7a9fbaa">
+            <input type="hidden" name="subject" value="New contact request from cogito-labs.xyz">
+
+            <div class="contact-form__row">
+              <div class="contact-form__field">
+                <label for="contact-name">Name</label>
+                <input type="text" id="contact-name" name="name" placeholder="Ada Lovelace" autocomplete="name" required>
               </div>
-              <div class="form-group">
-                <label for="email" hidden>Email</label>
-                <input type="email" id="email" name="email" placeholder="Email" required>
+              <div class="contact-form__field">
+                <label for="contact-email">Email</label>
+                <input type="email" id="contact-email" name="email" placeholder="you@company.com" autocomplete="email" required>
               </div>
-              <div class="form-group">
-                <label for="message" hidden>Message</label>
-                <textarea id="message" name="message" rows="5" placeholder="" required></textarea>
-              </div>
-                  <label class="consent">
-                    <input type="checkbox" name="consent" required />
-                    <span>I agree to the processing of my data to fulfill this request.</span>
-                  </label>
-                  
-                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-              <button type="submit" class="cta-btn">Contact us!</button>
-            </form>
-          </div>
+            </div>
+
+            <div class="contact-form__field contact-form__field--full">
+              <label for="contact-company">Company</label>
+              <input type="text" id="contact-company" name="company" placeholder="Company or team name">
+            </div>
+
+            <div class="contact-form__field contact-form__field--full">
+              <label for="contact-message">Project details</label>
+              <textarea id="contact-message" name="message" rows="5" placeholder="What problems are you looking to solve?" required></textarea>
+            </div>
+
+            <label class="contact-consent">
+              <input type="checkbox" name="consent" required>
+              <span>I agree to the processing of my data to fulfill this request.</span>
+            </label>
+
+            <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off">
+
+            <div class="contact-message contact-message--error hidden" role="alert"></div>
+
+            <div class="contact-form__actions">
+              <button type="submit" class="contact-button">Send message</button>
+              <!-- <p class="contact-hint">We’ll get back to you within one business day.</p> -->
+            </div>
+          </form>
         </div>
       </div>
+    </div>
 
-      <div class="col-lg-6">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d156388.9822659589!2d20.896616846600836!3d52.232887099108325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecc669a869f01%3A0x72f0be2a88ead3fc!2sWarsaw%2C%20Poland!5e0!3m2!1sen!2shu!4v1724369167056!5m2!1sen!2shu" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
+    <div class="contact-map" data-aos="fade-up" data-aos-delay="150">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d156388.9822659589!2d20.896616846600836!3d52.232887099108325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecc669a869f01%3A0x72f0be2a88ead3fc!2sWarsaw%2C%20Poland!5e0!3m2!1sen!2shu!4v1724369167056!5m2!1sen!2shu" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 
   </div>
@@ -449,8 +482,8 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Our Services</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Data Collecting</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Model Development</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Data Intelligence & Pipelines</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Custom AI Model Development</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Model Deployment</a></li>
             </ul>
           </div>
