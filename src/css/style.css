@@ -4,14 +4,44 @@
 
 :root {
   /* Color Palette */
-  --color-background-dark: rgba(45, 45, 45, 1);
-  --color-text-light: rgba(223, 223, 223, 1);
-  --color-link: rgba(127, 36, 255, 0.9);
-  --color-link-hover: rgba(255, 196, 94, 0.9);
-  --color-box-hover: rgba(21, 21, 21, 0.9);
-  --color-hero-overlay: rgba(0, 0, 0, 0.6);
-  --color-box-shadow: rgba(0, 0, 0, 0.1);
-  --color-box-shadow-light: rgba(255, 255, 255, 0.1);
+  --color-white-rgb: 255, 255, 255;
+  --color-black-rgb: 0, 0, 0;
+  --color-charcoal-rgb: 45, 45, 45;
+  --color-slate-rgb: 21, 21, 21;
+  --color-coal-rgb: 13, 13, 13;
+  --color-obsidian-rgb: 7, 7, 7;
+  --color-shadow-rgb: 10, 10, 15;
+  --color-midnight-rgb: 6, 8, 18;
+  --color-ink-rgb: 8, 8, 12;
+  --color-deep-indigo-rgb: 16, 16, 24;
+  --color-ash-rgb: 223, 223, 223;
+  --color-primary-rgb: 127, 36, 255;
+  --color-indigo-rgb: 126, 66, 255;
+  --color-violet-rgb: 108, 95, 255;
+  --color-azure-rgb: 0, 159, 253;
+  --color-cyan-bright-rgb: 23, 201, 255;
+  --color-sky-rgb: 94, 219, 255;
+  --color-mint-rgb: 87, 255, 180;
+  --color-rose-rgb: 255, 87, 119;
+  --color-pink-rgb: 255, 119, 203;
+  --color-coral-rgb: 255, 107, 141;
+  --color-amber-rgb: 255, 196, 94;
+  --color-peach-rgb: 255, 194, 111;
+  --color-blush-rgb: 255, 180, 192;
+  --color-blush-soft-rgb: 255, 188, 199;
+  --color-ice-rgb: 225, 240, 255;
+  --color-lavender-rgb: 255, 235, 250;
+  --color-mint-ice-rgb: 230, 255, 244;
+  --color-peach-ice-rgb: 255, 240, 228;
+
+  --color-background-dark: rgb(var(--color-charcoal-rgb));
+  --color-text-light: rgb(var(--color-ash-rgb));
+  --color-link: rgba(var(--color-primary-rgb), 0.9);
+  --color-link-hover: rgba(var(--color-amber-rgb), 0.9);
+  --color-box-hover: rgba(var(--color-slate-rgb), 0.9);
+  --color-hero-overlay: rgba(var(--color-black-rgb), 0.6);
+  --color-box-shadow: rgba(var(--color-black-rgb), 0.1);
+  --color-box-shadow-light: rgba(var(--color-white-rgb), 0.1);
 
   /* Typography */
   --font-family-base: "Open Sans", sans-serif;
@@ -26,6 +56,7 @@
   --spacing-md: 16px;
   --spacing-lg: 24px;
   --spacing-xl: 32px;
+  --section-title-gap: clamp(var(--spacing-lg), 6vw, var(--spacing-xl));
 
   /* Border Radius */
   --border-radius-sm: 4px;
@@ -193,7 +224,7 @@ select:focus {
 
 input::placeholder,
 textarea::placeholder {
-  color: rgba(223, 223, 223, 0.7);
+  color: rgba(var(--color-ash-rgb), 0.7);
 }
 
 /* Utility Classes */
@@ -677,7 +708,7 @@ textarea::placeholder {
   transition: border-color var(--transition-default);
   height: 100%;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(var(--color-black-rgb), 0.2);
   border-radius: var(--border-radius-md);
   border: 1px solid transparent; /* Updated to avoid unintended borders */
 }
@@ -749,8 +780,8 @@ textarea::placeholder {
   justify-content: center;
   padding: calc(var(--spacing-sm) * 1.5) var(--spacing-lg);
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(var(--color-white-rgb), 0.35);
+  background: rgba(var(--color-white-rgb), 0.18);
   color: var(--color-text-light);
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -761,8 +792,8 @@ textarea::placeholder {
 .tech-badge:focus,
 .tech-badge:hover {
   transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.6);
-  background: rgba(255, 255, 255, 0.26);
+  border-color: rgba(var(--color-white-rgb), 0.6);
+  background: rgba(var(--color-white-rgb), 0.26);
 }
 
 @media (max-width: 576px) {
@@ -784,7 +815,7 @@ section {
 }
 
 .section-title {
-  padding-bottom: var(--spacing-xl); /* Using spacing variable */
+  margin-bottom: var(--section-title-gap);
 }
 
 .section-title h2 {
@@ -892,10 +923,10 @@ section {
 # Features
 --------------------------------------------------------------*/
 .features {
-  --feature-card-bg: rgba(255, 255, 255, 0.06);
-  --feature-card-border: rgba(255, 255, 255, 0.1);
-  --feature-card-shadow: 0 18px 48px rgba(0, 0, 0, 0.25);
-  --feature-muted: rgba(223, 223, 223, 0.72);
+  --feature-card-bg: rgba(var(--color-white-rgb), 0.06);
+  --feature-card-border: rgba(var(--color-white-rgb), 0.1);
+  --feature-card-shadow: 0 18px 48px rgba(var(--color-black-rgb), 0.25);
+  --feature-muted: rgba(var(--color-ash-rgb), 0.72);
 }
 
 .features__header {
@@ -937,7 +968,7 @@ section {
 .feature-card:hover,
 .feature-card:focus-within {
   transform: translateY(-4px);
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 24px 64px rgba(var(--color-black-rgb), 0.28);
 }
 
 .feature-card__title {
@@ -983,19 +1014,19 @@ section {
   width: 100%;
   padding: var(--spacing-sm) var(--spacing-md);
   border-radius: var(--border-radius-md);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background-color: rgba(15, 15, 15, 0.9);
+  border: 1px solid rgba(var(--color-white-rgb), 0.18);
+  background-color: rgba(var(--color-coal-rgb), 0.9);
   color: var(--color-text-light);
   transition: border-color var(--transition-default), box-shadow var(--transition-default);
 }
 
 .feature-form input[type="email"]::placeholder {
-  color: rgba(223, 223, 223, 0.6);
+  color: rgba(var(--color-ash-rgb), 0.6);
 }
 
 .feature-form input[type="email"]:focus {
   border-color: var(--color-link);
-  box-shadow: 0 0 0 3px rgba(127, 36, 255, 0.25);
+  box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.25);
 }
 
 .feature-checkbox {
@@ -1040,7 +1071,7 @@ section {
 
 .feature-button--ghost {
   background: transparent;
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(var(--color-white-rgb), 0.2);
   color: var(--color-text-light);
 }
 
@@ -1075,9 +1106,9 @@ section {
 }
 
 .feature-message--error {
-  background: rgba(255, 87, 119, 0.15);
-  border: 1px solid rgba(255, 87, 119, 0.35);
-  color: #ffb4c0;
+  background: rgba(var(--color-rose-rgb), 0.15);
+  border: 1px solid rgba(var(--color-rose-rgb), 0.35);
+  color: rgb(var(--color-blush-rgb));
 }
 
 .feature-list {
@@ -1134,13 +1165,9 @@ section {
   }
 }
 
-
-
-
 /*--------------------------------------------------------------
 # Services
 --------------------------------------------------------------*/
-
 .services-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(300px, 1fr));
@@ -1149,17 +1176,17 @@ section {
 }
 
 .service-card {
-  --service-card-accent: linear-gradient(135deg, rgba(126, 66, 255, 0.55), rgba(0, 159, 253, 0.25));
-  --service-card-icon-color: rgba(255, 255, 255, 0.92);
+  --service-card-accent: linear-gradient(135deg, rgba(var(--color-indigo-rgb), 0.55), rgba(var(--color-azure-rgb), 0.25));
+  --service-card-icon-color: rgba(var(--color-white-rgb), 0.92);
   position: relative;
   display: flex;
   flex-direction: column;
   gap: calc(var(--spacing-md) * 0.9);
   padding: clamp(var(--spacing-lg), 2.75vw, calc(var(--spacing-xl) * 0.9));
   border-radius: calc(var(--border-radius-md) * 1.6);
-  background: rgba(16, 16, 24, 0.78);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 18px 38px rgba(10, 10, 15, 0.35);
+  background: rgba(var(--color-deep-indigo-rgb), 0.78);
+  border: 1px solid rgba(var(--color-white-rgb), 0.08);
+  box-shadow: 0 18px 38px rgba(var(--color-shadow-rgb), 0.35);
   backdrop-filter: blur(10px);
   color: var(--color-text-light);
   overflow: hidden;
@@ -1181,7 +1208,7 @@ section {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(8, 8, 12, 0.05) 0%, rgba(8, 8, 12, 0.85) 100%);
+    background: linear-gradient(180deg, rgba(var(--color-ink-rgb), 0.05) 0%, rgba(var(--color-ink-rgb), 0.85) 100%);
   mix-blend-mode: multiply;
   z-index: 0;
 }
@@ -1198,10 +1225,10 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(var(--color-white-rgb), 0.08);
+  border: 1px solid rgba(var(--color-white-rgb), 0.14);
   color: var(--service-card-icon-color);
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.35);
+  box-shadow: inset 0 0 0 1px rgba(var(--color-black-rgb), 0.35);
 }
 
 .service-card__icon svg {
@@ -1213,7 +1240,7 @@ section {
   font-size: var(--font-size-small);
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.68);
+  color: rgba(var(--color-white-rgb), 0.68);
   margin: var(--spacing-xs) 0 0;
 }
 
@@ -1224,7 +1251,7 @@ section {
 
 .service-card__lead {
   margin: 0;
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(var(--color-white-rgb), 0.78);
   font-size: calc(var(--font-size-base) * 0.95);
   line-height: 1.6;
 }
@@ -1238,7 +1265,7 @@ section {
 .service-card__list li {
   padding: var(--spacing-sm) 0;
   line-height: 1.55;
-  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  border-top: 1px solid rgba(var(--color-white-rgb), 0.14);
 }
 
 .service-card__list li:first-child {
@@ -1251,7 +1278,7 @@ section {
   margin-top: auto;
   padding: var(--spacing-sm) calc(var(--spacing-md) * 1.25);
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.26);
+  border: 1px solid rgba(var(--color-white-rgb), 0.26);
   color: var(--color-text-light);
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -1261,16 +1288,16 @@ section {
 
 .service-card__cta:hover,
 .service-card__cta:focus {
-  background: rgba(255, 255, 255, 0.14);
-  border-color: rgba(255, 255, 255, 0.46);
+  background: rgba(var(--color-white-rgb), 0.14);
+  border-color: rgba(var(--color-white-rgb), 0.46);
   transform: translateY(-1px);
 }
 
 .service-card:focus-within,
 .service-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 44px rgba(6, 8, 18, 0.45);
-  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 20px 44px rgba(var(--color-midnight-rgb), 0.45);
+  border-color: rgba(var(--color-white-rgb), 0.22);
 }
 
 .service-card:hover::before,
@@ -1279,23 +1306,23 @@ section {
 }
 
 .service-card--data {
-  --service-card-accent: linear-gradient(135deg, rgba(126, 66, 255, 0.55), rgba(23, 201, 255, 0.3));
-  --service-card-icon-color: rgba(225, 240, 255, 0.95);
+  --service-card-accent: linear-gradient(135deg, rgba(var(--color-indigo-rgb), 0.55), rgba(var(--color-cyan-bright-rgb), 0.3));
+  --service-card-icon-color: rgba(var(--color-ice-rgb), 0.95);
 }
 
 .service-card--ml {
-  --service-card-accent: linear-gradient(135deg, rgba(255, 119, 203, 0.45), rgba(108, 95, 255, 0.4));
-  --service-card-icon-color: rgba(255, 235, 250, 0.95);
+  --service-card-accent: linear-gradient(135deg, rgba(var(--color-pink-rgb), 0.45), rgba(var(--color-violet-rgb), 0.4));
+  --service-card-icon-color: rgba(var(--color-lavender-rgb), 0.95);
 }
 
 .service-card--automation {
-  --service-card-accent: linear-gradient(135deg, rgba(94, 219, 255, 0.45), rgba(87, 255, 180, 0.45));
-  --service-card-icon-color: rgba(230, 255, 244, 0.95);
+  --service-card-accent: linear-gradient(135deg, rgba(var(--color-sky-rgb), 0.45), rgba(var(--color-mint-rgb), 0.45));
+  --service-card-icon-color: rgba(var(--color-mint-ice-rgb), 0.95);
 }
 
 .service-card--agents {
-  --service-card-accent: linear-gradient(135deg, rgba(255, 194, 111, 0.45), rgba(255, 107, 141, 0.35));
-  --service-card-icon-color: rgba(255, 240, 228, 0.95);
+  --service-card-accent: linear-gradient(135deg, rgba(var(--color-peach-rgb), 0.45), rgba(var(--color-coral-rgb), 0.35));
+  --service-card-icon-color: rgba(var(--color-peach-ice-rgb), 0.95);
 }
 
 @media (max-width: 992px) {
@@ -1547,8 +1574,8 @@ section {
 
 /* Portfolio Item Wrapper Hover Effect */
 .portfolio .portfolio-wrap:hover {
-  background: rgba(20, 20, 20, 0.5); /* Apply a whitish overlay */
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3); /* Adjust shadow for better visibility on hover */
+  background: rgba(var(--color-slate-rgb), 0.5); /* Apply a whitish overlay */
+  box-shadow: 0px 4px 20px rgba(var(--color-black-rgb), 0.3); /* Adjust shadow for better visibility on hover */
   color: var(--color-text-dark); /* Optional: Adjust text color if needed */
 }
 
@@ -1744,11 +1771,11 @@ section {
 # Contact
 --------------------------------------------------------------*/
 .contact {
-  --contact-card-bg: rgba(255, 255, 255, 0.05);
-  --contact-panel-bg: rgba(13, 13, 13, 0.92);
-  --contact-border: rgba(255, 255, 255, 0.08);
-  --contact-shadow: 0 24px 64px rgba(0, 0, 0, 0.28);
-  --contact-muted: rgba(223, 223, 223, 0.7);
+  --contact-card-bg: rgba(var(--color-white-rgb), 0.05);
+  --contact-panel-bg: rgba(var(--color-coal-rgb), 0.92);
+  --contact-border: rgba(var(--color-white-rgb), 0.08);
+  --contact-shadow: 0 24px 64px rgba(var(--color-black-rgb), 0.28);
+  --contact-muted: rgba(var(--color-ash-rgb), 0.7);
 }
 
 .contact-subtitle {
@@ -1759,7 +1786,7 @@ section {
 }
 
 .contact-layout {
-  margin-top: var(--spacing-xl);
+  margin-top: 0;
 }
 
 .contact-card {
@@ -1778,7 +1805,7 @@ section {
   align-self: flex-start;
   padding: var(--spacing-xs) var(--spacing-sm);
   border-radius: 999px;
-  background: rgba(127, 36, 255, 0.2);
+  background: rgba(var(--color-primary-rgb), 0.2);
   color: var(--color-link);
   font-size: var(--font-size-small);
   letter-spacing: 0.08em;
@@ -1876,8 +1903,8 @@ section {
   width: 100%;
   padding: var(--spacing-sm) var(--spacing-md);
   border-radius: var(--border-radius-md);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(7, 7, 7, 0.9);
+  border: 1px solid rgba(var(--color-white-rgb), 0.14);
+  background: rgba(var(--color-obsidian-rgb), 0.9);
   color: var(--color-text-light);
   transition: border-color var(--transition-default), box-shadow var(--transition-default);
 }
@@ -1885,13 +1912,13 @@ section {
 .contact-form input:focus,
 .contact-form textarea:focus {
   border-color: var(--color-link);
-  box-shadow: 0 0 0 3px rgba(127, 36, 255, 0.25);
+  box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.25);
   outline: none;
 }
 
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
-  color: rgba(223, 223, 223, 0.45);
+  color: rgba(var(--color-ash-rgb), 0.45);
 }
 
 .contact-form textarea {
@@ -1955,9 +1982,9 @@ section {
 }
 
 .contact-message--error {
-  background: rgba(255, 87, 119, 0.18);
-  border: 1px solid rgba(255, 87, 119, 0.4);
-  color: #ffbcc7;
+  background: rgba(var(--color-rose-rgb), 0.18);
+  border: 1px solid rgba(var(--color-rose-rgb), 0.4);
+  color: rgb(var(--color-blush-soft-rgb));
 }
 
 .contact-map {
