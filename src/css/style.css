@@ -293,7 +293,6 @@ textarea::placeholder {
   }
 }
 
-
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
@@ -308,17 +307,17 @@ textarea::placeholder {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  display: flex; /* Use flexbox */
-  align-items: center; /* Center vertically */
-  justify-content: center; /* Center horizontally */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: visibility 0s, opacity var(--transition-default), background-color var(--transition-default);
 }
 
 .back-to-top i {
-  font-size: 20px; /* Icon size */
+  font-size: 20px;
   color: var(--color-text-light);
-  line-height: 1; /* Ensures no extra vertical space from the icon */
-  vertical-align: middle; /* Corrects alignment within the container */
+  line-height: 1;
+  vertical-align: middle;
 }
 
 
@@ -344,7 +343,6 @@ textarea::placeholder {
   transition: opacity var(--transition-default), background-color var(--transition-default);
 }
 
-
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
@@ -359,7 +357,6 @@ textarea::placeholder {
   background: var(--color-background-dark);
   will-change: opacity, visibility;
   transition: opacity var(--transition-default), visibility var(--transition-default);
-  /* Accessibility */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -383,7 +380,6 @@ textarea::placeholder {
   will-change: transform;
 }
 
-/* Animation using transform */
 @keyframes animate-preloader {
   0% {
     transform: rotate(0deg);
@@ -393,7 +389,6 @@ textarea::placeholder {
   }
 }
 
-/* Disable aos animation delay on mobile devices */
 @media screen and (max-width: 768px) {
   [data-aos-delay] {
     transition-delay: 0 !important;
@@ -401,21 +396,20 @@ textarea::placeholder {
 
 }
 
-
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
 #header {
   transition: background-color var(--transition-default), padding var(--transition-default); /* Include padding in transition */
   z-index: 997;
-  padding: var(--spacing-md) 0; /* Use spacing variable */
+  padding: var(--spacing-md) 0;
   background-color: transparent;
 }
 
 #header.header-scrolled,
 #header.header-inner-pages {
-  background-color: var(--color-hero-overlay); /* Use CSS variable */
-  padding: var(--spacing-sm) 0; /* Reduce padding when scrolled */
+  background-color: var(--color-hero-overlay);
+  padding: var(--spacing-sm) 0;
 
 }
 
@@ -426,45 +420,43 @@ textarea::placeholder {
   line-height: 1;
   font-weight: 700;
   letter-spacing: 2px;
-  color: var(--color-text-light); /* Use CSS variable */
+  color: var(--color-text-light);
 }
 
 #header .logo a {
   color: var(--color-text-light);
   text-decoration: none;
-  transition: color var(--transition-default); /* Add transition for smoother effect */
+  transition: color var(--transition-default);
 }
 
 #header .logo a:hover,
 #header .logo a:focus {
-  color: var(--color-link-hover); /* Use CSS variable for hover state */
+  color: var(--color-link-hover);
 }
 
 #header .logo a:focus-visible {
   outline: 2px dashed var(--color-link-hover);
-  outline-offset: var(--spacing-xs); /* Clear focus state */
+  outline-offset: var(--spacing-xs);
 }
 
 #header .logo img {
   max-height: 40px;
-  transition: transform var(--transition-default); /* Smooth image transitions */
+  transition: transform var(--transition-default);
 }
 
 @media (max-width: 768px) {
   #header {
-    padding: var(--spacing-sm) 0; /* Adjust padding for smaller screens */
+    padding: var(--spacing-sm) 0;
   }
 
   #header .logo {
-    font-size: 1.75rem; /* Adjust logo size for smaller screens */
+    font-size: 1.75rem;
   }
 }
-
 
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
-/* General Navigation Styles */
 .navmenu {
   padding: 0;
   z-index: 9997;
@@ -496,7 +488,6 @@ textarea::placeholder {
   transition: transform var(--transition-default);
 }
 
-/* Desktop Navigation */
 @media (min-width: 1200px) {
   .navmenu {
     display: flex;
@@ -572,7 +563,6 @@ textarea::placeholder {
   }
 }
 
-/* Mobile Navigation */
 @media (max-width: 1199px) {
   .mobile-nav-toggle {
     color: var(--color-text-light);
@@ -708,7 +698,7 @@ textarea::placeholder {
   text-align: center;
   background-color: rgba(var(--color-black-rgb), 0.2);
   border-radius: var(--border-radius-md);
-  border: 1px solid transparent; /* Updated to avoid unintended borders */
+  border: 1px solid transparent;
 }
 
 #hero .icon-box i {
@@ -808,7 +798,7 @@ textarea::placeholder {
 # Sections General
 --------------------------------------------------------------*/
 section {
-  padding: var(--spacing-lg) 0; /* Using spacing variable */
+  padding: var(--spacing-lg) 0;
   overflow: hidden;
 }
 
@@ -817,14 +807,14 @@ section {
 }
 
 .section-title h2 {
-  font-size: calc(var(--font-size-base) * 1.5625); /* 25px based on base font size */
+  font-size: calc(var(--font-size-base) * 1.5625);
   font-weight: 500;
   padding: 0;
-  line-height: 1.5; /* Kept the same for readability */
-  margin: 0 0 var(--spacing-sm) 0; /* Using spacing variable */
-  letter-spacing: 1px; /* Adjusted letter-spacing for clarity */
+  line-height: 1.5;
+  margin: 0 0 var(--spacing-sm) 0;
+  letter-spacing: 1px; 
   text-transform: uppercase;
-  color: var(--color-text-light); /* Updated to use variable */
+  color: var(--color-text-light);
   font-family: "Poppins", sans-serif;
 }
 
@@ -833,24 +823,22 @@ section {
   width: 120px;
   height: 1px;
   display: inline-block;
-  background: var(--color-link-hover); /* Updated to use color variable */
-  margin: var(--spacing-xs) var(--spacing-sm); /* Using spacing variables */
+  background: var(--color-link-hover);
+  margin: var(--spacing-xs) var(--spacing-sm);
 }
 
 .section-title p {
   margin: 0;
-  font-size: calc(var(--font-size-base) * 2.25); /* 36px based on base font size */
+  font-size: calc(var(--font-size-base) * 2.25);
   font-weight: 700;
   text-transform: uppercase;
   font-family: "Poppins", sans-serif;
-  color: var(--color-text-light); /* Updated color to use variable */
+  color: var(--color-text-light);
 }
-
 
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
-
 .about .content {
   display: flex;
   margin-top: var(--spacing-lg);
@@ -862,26 +850,23 @@ section {
 
 .about .content h2 {
   font-weight: 700;
-  font-size: calc(var(--font-size-base) * 2); /* Adjust size with the base font size */
-  font-family: var(--font-family-base); /* Use the base font family */
-  color: var(--color-text-light); /* Use the correct color variable */
-  margin-bottom: var(--spacing-md); /* Use spacing variable */
+  font-size: calc(var(--font-size-base) * 2);
+  font-family: var(--font-family-base);
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-md); 
 }
 
-/* Style for paragraphs within the About section */
 .about .content p {
-  font-size: var(--font-size-base); /* Use base font size */
-  line-height: var(--line-height-base); /* Use line height variable */
-  margin-bottom: var(--spacing-md); /* Use spacing variable */
-  text-align: justify; /* Justify the text */
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base); 
+  margin-bottom: var(--spacing-md); 
+  text-align: justify; 
 }
 
-/* Style for the last paragraph to remove extra margin */
 .about .content p:last-child {
   margin-bottom: 0;
 }
 
-/* Clean up unused styles */
 .about .content ul {
   list-style: none;
   padding: 0;
@@ -889,31 +874,28 @@ section {
 }
 
 .about .content ul li {
-  padding: 0 0 var(--spacing-sm) var(--spacing-md); /* Adjust padding */
+  padding: 0 0 var(--spacing-sm) var(--spacing-md);
   position: relative;
 }
 
-/* Adjust icon styling */
 .about .content ul i {
   position: absolute;
-  font-size: var(--font-size-small); /* Use a variable for font size */
+  font-size: var(--font-size-small);
   left: 0;
-  top: 50%; /* Center vertically */
-  transform: translateY(-50%); /* Center icon vertically */
-  color: var(--color-link); /* Use the correct color variable */
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-link);
 }
 
-/* Responsive design adjustments */
 @media (max-width: 768px) {
   .about .content h2 {
-    font-size: var(--font-size-medium); /* Adjust size for smaller screens */
+    font-size: var(--font-size-medium);
   }
 
   .about .content p {
-    font-size: var(--font-size-small); /* Adjust size for smaller screens */
+    font-size: var(--font-size-small);
   }
 }
-
 
 /*--------------------------------------------------------------
 # about
@@ -1374,7 +1356,6 @@ section {
   }
 }
 
-
 /*--------------------------------------------------------------
 # Cta
 --------------------------------------------------------------*/
@@ -1391,10 +1372,10 @@ section {
 
 .cta .container {
   display: flex;
-  flex-direction: column; /* Stack items vertically */
-  align-items: center; /* Center items horizontally */
-  justify-content: center; /* Center items vertically */
-  height: 100%; /* Ensure the container takes full height of the parent */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 .cta h4 { 
@@ -1478,7 +1459,6 @@ section {
   outline-offset: 2px;
 }
 
-/* Portfolio layout */
 .portfolio-grid {
   display: grid;
   gap: clamp(var(--spacing-lg), 4vw, calc(var(--spacing-xl) * 1.4));
@@ -1797,15 +1777,15 @@ section {
 # Team
 --------------------------------------------------------------*/
 .team {
-  background: var(--color-background-dark); /* Apply background-dark color */
-  margin-top: var(--spacing-lg); /* Use variable for margin */
+  background: var(--color-background-dark); 
+  margin-top: var(--spacing-lg); 
 }
 
 .team .member {
   overflow: hidden;
-  border-radius: var(--border-radius-md); /* Use variable for border-radius */
-  background: var(--color-background-dark); /* Ensure background consistency */
-  box-shadow: 0px 2px 15px var(--color-box-shadow-light); /* Use variable for box-shadow */
+  border-radius: var(--border-radius-md); 
+  background: var(--color-background-dark); 
+  box-shadow: 0px 2px 15px var(--color-box-shadow-light);
 }
 
 .team .member .member-img {
@@ -1816,7 +1796,7 @@ section {
 .team .member .social {
   position: absolute;
   left: 0;
-  bottom: var(--spacing-lg); /* Use variable for spacing */
+  bottom: var(--spacing-lg);
   right: 0;
   opacity: 0;
   transition: opacity var(--transition-default), bottom var(--transition-default);
@@ -1824,12 +1804,12 @@ section {
 }
 
 .team .member .social a {
-  color: var(--color-text-light); /* Use text-light color for icons */
-  margin: 0 var(--spacing-xs); /* Use variable for margin */
+  color: var(--color-text-light); 
+  margin: 0 var(--spacing-xs);
   border-radius: 50%;
   width: 36px;
   height: 36px;
-  background: var(--color-box-hover); /* Use box-hover color */
+  background: var(--color-box-hover);
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -1837,90 +1817,87 @@ section {
 }
 
 .team .member .social a:hover {
-  background: var(--color-link-hover); /* Use link-hover color */
-  color: var(--color-background-dark); /* Ensure contrast on hover */
+  background: var(--color-link-hover);
+  color: var(--color-background-dark);
 }
 
 .team .member .social i {
-  font-size: var(--font-size-small); /* Use variable for font-size */
+  font-size: var(--font-size-small);
   line-height: 0;
 }
 
 .team .member .member-info {
-  padding: var(--spacing-lg) var(--spacing-md); /* Use variables for padding */
+  padding: var(--spacing-lg) var(--spacing-md); 
 }
 
 .team .member .member-info h4 {
   font-weight: 700;
-  margin-bottom: var(--spacing-xs); /* Use variable for margin */
-  font-size: var(--font-size-large); /* Use variable for font-size */
-  color: var(--color-text-light); /* Ensure text-light color */
+  margin-bottom: var(--spacing-xs);
+  font-size: var(--font-size-large);
+  color: var(--color-text-light);
 }
 
 .team .member .member-info span {
   display: block;
-  font-size: var(--font-size-small); /* Use variable for font-size */
+  font-size: var(--font-size-small);
   font-weight: 400;
-  color: var(--color-text-light); /* Ensure text-light color */
+  color: var(--color-text-light);
 }
 
 .team .member .member-info p {
   font-style: italic;
-  font-size: var(--font-size-base); /* Use variable for font-size */
-  line-height: 1.7; /* Improve readability with line-height */
-  color: var(--color-text-light); /* Ensure text-light color */
+  font-size: var(--font-size-base);
+  line-height: 1.7;
+  color: var(--color-text-light);
 }
 
 .team .member:hover .social {
   opacity: 1;
-  bottom: var(--spacing-md); /* Use variable for spacing */
+  bottom: var(--spacing-md);
 }
 
 /* Mobile Styles */
 @media (max-width: 768px) {
   .team .row {
     display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
-    gap: var(--spacing-md); /* Add spacing between items */
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
   }
 
   .team .col-lg-3 {
-    flex: 1 1 100%; /* Allow columns to take full width on mobile */
-    max-width: 400px; /* Limit the max width to maintain aspect ratio */
+    flex: 1 1 100%; 
+    max-width: 400px; 
   }
 
   .team .member {
-    margin: 0 auto; /* Center the member within the column */
-    width: 100%; /* Full width of the container */
-    max-width: 300px; /* Limit the width for smaller screens */
+    margin: 0 auto; 
+    width: 100%;
+    max-width: 300px;
   }
 
   .team .member .member-img img {
-    max-width: 100%; /* Ensure image does not overflow */
-    height: auto; /* Maintain aspect ratio */
+    max-width: 100%;
+    height: auto;
   }
 
   .team .member .social {
-    bottom: var(--spacing-sm); /* Adjust spacing for mobile */
+    bottom: var(--spacing-sm);
   }
 
   .team .member .member-info {
-    padding: var(--spacing-sm) var(--spacing-sm); /* Adjust padding for mobile */
+    padding: var(--spacing-sm) var(--spacing-sm);
   }
 
   .team .member .member-info h3 {
-    font-size: var(--font-size-medium); /* Adjust font size for mobile */
+    font-size: var(--font-size-medium);
   }
 
   .team .member .member-info p {
-    font-size: var(--font-size-small); /* Adjust font size for mobile */
+    font-size: var(--font-size-small);
   }
 }
 
-
-
-/*--------------------------------------------------------------
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
@@ -2205,46 +2182,41 @@ section {
   color: var(--color-background-dark);
 }
 
-/* Map Container */
 .contact .col-lg-6:last-child {
   display: flex;
   align-items: stretch;
-  padding: 0; /* Remove padding */
-  margin: 0;  /* Remove margin */
-  box-shadow: 0px 2px 15px var(--color-box-shadow-light); /* Apply box-shadow */
+  padding: 0; 
+  margin: 0; 
+  box-shadow: 0px 2px 15px var(--color-box-shadow-light); 
   border-radius: var(--border-radius-md);
-  overflow: hidden; /* Ensure the map adheres to the border-radius */
+  overflow: hidden;
 }
 
 /* Map iframe */
 .contact .col-lg-6:last-child iframe {
-  width: 100%; /* Full width of the container */
-  height: 100%; /* Full height of the container */
-  border: none; /* Remove any default border */
-  display: block; /* Ensure no inline space around the iframe */
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
-  /* Stack columns vertically on mobile */
   .contact .row {
-    flex-direction: column; /* Stack columns vertically */
+    flex-direction: column;
   }
 
   .contact .col-lg-6 {
-    width: 100%; /* Ensure each column takes full width */
-    margin-bottom: var(--spacing-md); /* Add spacing between stacked columns */
+    width: 100%;
+    margin-bottom: var(--spacing-md);
   }
 
-  /* Ensure contact form and map take full width */
   .contact .contact-form,
   .contact .col-lg-6:last-child {
-    max-height: none; /* Remove max-height restriction */
+    max-height: none; 
   }
 
-  /* Adjust iframe styling for mobile */
   .contact .col-lg-6:last-child iframe {
-    height: 400px; /* Set a fixed height for map on mobile */
+    height: 400px;
   }
 }
 
@@ -2252,16 +2224,16 @@ section {
 # Breadcrumbs
 --------------------------------------------------------------*/
 .breadcrumbs {
-  padding: var(--spacing-md) 0; /* Updated padding for consistency */
-  background: var(--color-background-dark); /* Updated background color */
+  padding: var(--spacing-md) 0; 
+  background: var(--color-background-dark);
   min-height: 40px;
   margin-top: 74px;
 }
 
 .breadcrumbs h2 {
-  font-size: var(--font-size-large); /* Updated font size for better readability */
+  font-size: var(--font-size-large); 
   font-weight: 400;
-  color: var(--color-text-light); /* Updated text color */
+  color: var(--color-text-light);
 }
 
 .breadcrumbs ol {
@@ -2273,13 +2245,13 @@ section {
 }
 
 .breadcrumbs ol li+li {
-  padding-left: var(--spacing-sm); /* Consistent spacing */
+  padding-left: var(--spacing-sm);
 }
 
 .breadcrumbs ol li+li::before {
   display: inline-block;
-  padding-right: var(--spacing-sm); /* Consistent spacing */
-  color: var(--color-text-light); /* Updated separator color */
+  padding-right: var(--spacing-sm);
+  color: var(--color-text-light);
   content: "/";
 }
 
@@ -2298,18 +2270,18 @@ section {
 
   .breadcrumbs ol li {
     display: inline-block;
-    color: var(--color-text-light); /* Ensure text color is consistent on smaller screens */
+    color: var(--color-text-light);
   }
 }
 
 @media (max-width: 768px) {
   .breadcrumbs {
-    padding: var(--spacing-sm) 0; /* Adjusted padding for smaller screens */
-    margin-top: 60px; /* Slightly adjusted margin for very small screens */
+    padding: var(--spacing-sm) 0;
+    margin-top: 60px;
   }
 
   .breadcrumbs h2 {
-    font-size: calc(var(--font-size-base) * 1.5); /* Responsive font size for smaller screens */
+    font-size: calc(var(--font-size-base) * 1.5);
   }
 }
 
