@@ -1589,6 +1589,8 @@ section {
   font-size: calc(var(--font-size-base) * 1.6);
   font-weight: 700;
   line-height: 1.25;
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
 }
 
 .portfolio-card__title sup {
