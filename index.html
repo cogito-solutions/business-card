@@ -336,6 +336,9 @@
                     <button type="button" class="filter-button" data-filter=".filter-api" role="tab" aria-selected="false">APIs</button>
                   </li>
                   <li>
+                    <button type="button" class="filter-button" data-filter=".filter-model" role="tab" aria-selected="false">Models</button>
+                  </li>
+                  <li>
                     <button type="button" class="filter-button" data-filter=".filter-automation" role="tab" aria-selected="false">Automation</button>
                   </li>
                 </ul>
@@ -371,6 +374,38 @@
                     </div>
                   </dl>
                   <footer class="portfolio-card__footer">
+                  </footer>
+                </figcaption>
+              </figure>
+            </article>
+
+            <article class="portfolio-item filter-models" role="article">
+              <figure class="portfolio-card" data-aos="fade-right" data-aos-delay="40">
+                <div class="portfolio-card__media portfolio-card__media--aws">
+                  <span class="portfolio-card__media-label">Receipt automation console</span>
+                </div>
+                <figcaption class="portfolio-card__body">
+                  <header class="portfolio-card__header">
+                    <div class="portfolio-card__status portfolio-card__status--success">In production</div>
+                    <h3 class="portfolio-card__title">Vision-powered receipt parser</h3>
+                    <p class="portfolio-card__summary">Uploads supermarket checks, extracts structured line items, and emails finance teams an XLSX report within minutes.</p>
+                  </header>
+                  <dl class="portfolio-card__meta" aria-label="Project quick facts">
+                    <div>
+                      <dt>Turnaround</dt>
+                      <dd><span aria-label="Under two minutes">&lt;2m</span> from receipt photo upload to inbox-ready spreadsheet</dd>
+                    </div>
+                    <div>
+                      <dt>Stack</dt>
+                      <dd>OpenCV · PaddleOCR · FastAPI · AWS SES</dd>
+                    </div>
+                    <div>
+                      <dt>Services</dt>
+                      <dd>Computer Vision · Document AI · Process Automation</dd>
+                    </div>
+                  </dl>
+                  <footer class="portfolio-card__footer">
+                    <a class="portfolio-card__cta" href="https://n8n.cogito-tech.eu/form/723a81e8-d1c1-4a95-92e6-40ab056511e1" target="_blank" rel="noopener" aria-label="Request receipt parsing demo">Launch demo</a>
                   </footer>
                 </figcaption>
               </figure>
