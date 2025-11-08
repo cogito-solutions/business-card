@@ -53,6 +53,9 @@
     };
   };
 
+  let portfolioSwiper = null;
+  let servicesSwiper = null;
+
   /**
    * Navbar links active state on scroll
    */
@@ -286,29 +289,139 @@ document.addEventListener('click', function(e) {
   // }
 
   /**
-   * Portfolio filter controls
+   * Services slider
    */
   window.addEventListener('load', () => {
-    const portfolioGrid = select('.portfolio-grid');
-    const portfolioItems = select('.portfolio-item', true);
-    const portfolioFilters = select('#portfolio-filters .filter-button', true);
-
-    if (!portfolioGrid || !portfolioItems.length || !portfolioFilters.length) {
-      console.info('Portfolio grid or filters not found, skipping filter setup.');
+    const servicesSliderEl = select('#services-slider');
+    if (!servicesSliderEl) {
       return;
     }
 
+    const paginationEl = servicesSliderEl.querySelector('.services-slider__pagination');
+
+    try {
+      const sliderConfig = {
+        speed: 600,
+        spaceBetween: 28,
+        slidesPerView: 1,
+        autoHeight: true,
+        watchOverflow: true,
+        keyboard: {
+          enabled: true
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 32,
+            autoHeight: false
+          },
+          992: {
+            slidesPerView: 3,
+            spaceBetween: 36,
+            autoHeight: false,
+            allowTouchMove: false
+          }
+        }
+      };
+
+      if (paginationEl) {
+        sliderConfig.pagination = {
+          el: paginationEl,
+          clickable: true
+        };
+      }
+
+      servicesSwiper = new Swiper(servicesSliderEl, sliderConfig);
+    } catch (error) {
+      console.error('Failed to initialize services slider:', error);
+    }
+  });
+
+  /**
+   * Portfolio filter controls
+   */
+  window.addEventListener('load', () => {
+    const portfolioSliderEl = select('#portfolio-slider');
+    const portfolioItems = select('#portfolio-slider .portfolio-item', true);
+    const portfolioFilters = select('#portfolio-filters .filter-button', true);
+
+    if (!portfolioSliderEl || !portfolioItems.length || !portfolioFilters.length) {
+      console.info('Portfolio slider or filters not found, skipping setup.');
+      return;
+    }
+
+    const paginationEl = portfolioSliderEl.querySelector('.portfolio-slider__pagination');
+    const nextEl = portfolioSliderEl.querySelector('.portfolio-slider__nav--next');
+    const prevEl = portfolioSliderEl.querySelector('.portfolio-slider__nav--prev');
+
+    try {
+      const sliderConfig = {
+        speed: 600,
+        spaceBetween: 32,
+        slidesPerView: 1,
+        autoHeight: true,
+        watchOverflow: true,
+        keyboard: {
+          enabled: true
+        },
+        breakpoints: {
+          1200: {
+            slidesPerView: 2,
+            spaceBetween: 40
+          }
+        }
+      };
+
+      if (paginationEl) {
+        sliderConfig.pagination = {
+          el: paginationEl,
+          clickable: true
+        };
+      }
+
+      if (nextEl && prevEl) {
+        sliderConfig.navigation = {
+          nextEl,
+          prevEl
+        };
+      }
+
+      portfolioSwiper = new Swiper(portfolioSliderEl, sliderConfig);
+      portfolioSwiper.allowTouchMove = portfolioItems.length > 1;
+    } catch (error) {
+      console.error('Failed to initialize portfolio slider:', error);
+    }
+
     const applyFilter = (filterValue) => {
+      let visibleCount = 0;
+
       portfolioItems.forEach(item => {
         const matches = filterValue === '*' || item.matches(filterValue);
         if (matches) {
           item.classList.remove('portfolio-item--hidden');
           item.removeAttribute('hidden');
+          visibleCount += 1;
         } else {
           item.classList.add('portfolio-item--hidden');
           item.setAttribute('hidden', 'true');
         }
       });
+
+      if (portfolioSwiper) {
+        portfolioSwiper.update();
+        if (visibleCount > 0) {
+          portfolioSwiper.slideTo(0);
+        }
+        portfolioSwiper.allowTouchMove = visibleCount > 1;
+
+        if (portfolioSwiper.pagination && typeof portfolioSwiper.pagination.update === 'function') {
+          portfolioSwiper.pagination.update();
+        }
+
+        if (portfolioSwiper.navigation && typeof portfolioSwiper.navigation.update === 'function') {
+          portfolioSwiper.navigation.update();
+        }
+      }
 
       requestAnimationFrame(() => AOS.refresh());
     };
