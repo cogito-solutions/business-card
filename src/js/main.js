@@ -286,15 +286,17 @@ document.addEventListener('click', function(e) {
   // }
 
   /**
-   * Portfolio filter controls
+   * Portfolio filter controls with Swiper
    */
+  let portfolioSwiperInstance = null;
+
   window.addEventListener('load', () => {
-    const portfolioGrid = select('.portfolio-grid');
+    const portfolioSwiper = select('.portfolio-swiper');
     const portfolioItems = select('.portfolio-item', true);
     const portfolioFilters = select('#portfolio-filters .filter-button', true);
 
-    if (!portfolioGrid || !portfolioItems.length || !portfolioFilters.length) {
-      console.info('Portfolio grid or filters not found, skipping filter setup.');
+    if (!portfolioSwiper || !portfolioItems.length || !portfolioFilters.length) {
+      console.info('Portfolio swiper or filters not found, skipping filter setup.');
       return;
     }
 
@@ -304,11 +306,18 @@ document.addEventListener('click', function(e) {
         if (matches) {
           item.classList.remove('portfolio-item--hidden');
           item.removeAttribute('hidden');
+          item.style.display = '';
         } else {
           item.classList.add('portfolio-item--hidden');
           item.setAttribute('hidden', 'true');
+          item.style.display = 'none';
         }
       });
+
+      if (portfolioSwiperInstance) {
+        portfolioSwiperInstance.update();
+        portfolioSwiperInstance.slideTo(0);
+      }
 
       requestAnimationFrame(() => AOS.refresh());
     };
@@ -336,12 +345,55 @@ document.addEventListener('click', function(e) {
   });
 
   /**
-   * Initiate portfolio lightbox 
+   * Initiate portfolio lightbox
    */
   // Uncomment and configure the lightbox as needed
   const portfolioLightbox = GLightbox({
     selector: '.portfolio-lightbox'
   });
+
+  /**
+   * Portfolio slider
+   */
+  try {
+    portfolioSwiperInstance = new Swiper('.portfolio-swiper', {
+      speed: 600,
+      loop: false,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      slidesPerView: 'auto',
+      spaceBetween: 30,
+      centeredSlides: false,
+      watchOverflow: true,
+      breakpoints: {
+        320: {
+          spaceBetween: 15
+        },
+        640: {
+          spaceBetween: 20
+        },
+        768: {
+          spaceBetween: 25
+        },
+        1024: {
+          spaceBetween: 30
+        }
+      }
+    });
+  } catch (error) {
+    console.error('Failed to initialize portfolio slider:', error);
+  }
 
   /**
    * Portfolio details slider
@@ -378,7 +430,7 @@ document.addEventListener('click', function(e) {
   });
 
   /**
-   * Initiate Pure Counter 
+   * Initiate Pure Counter
    */
   // new PureCounter();
 

@@ -1410,6 +1410,11 @@ section {
 /*--------------------------------------------------------------
 # Portfolio
 --------------------------------------------------------------*/
+.portfolio .container {
+  overflow: hidden;
+  position: relative;
+}
+
 .portfolio #portfolio-filters {
   display: flex;
   flex-wrap: wrap;
@@ -1466,6 +1471,133 @@ section {
   align-items: stretch;
 }
 
+.portfolio-swiper {
+  padding-bottom: 60px;
+  padding-top: 20px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+.portfolio-swiper .swiper-wrapper {
+  align-items: stretch;
+}
+
+.portfolio-swiper .swiper-slide {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  min-width: 450px;
+  max-width: 450px;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .portfolio-swiper .swiper-slide {
+    width: 550px;
+    min-width: 550px;
+    max-width: 550px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .portfolio-swiper .swiper-slide {
+    width: 600px;
+    min-width: 600px;
+    max-width: 600px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .portfolio-swiper .swiper-slide {
+    width: 650px;
+    min-width: 650px;
+    max-width: 650px;
+  }
+}
+
+.portfolio-swiper .swiper-slide.portfolio-item--hidden {
+  display: none !important;
+}
+
+.portfolio-swiper .swiper-pagination {
+  bottom: 0;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portfolio-swiper .swiper-pagination-bullet {
+  background: rgba(var(--color-white-rgb), 0.4);
+  opacity: 1;
+  margin: 0 6px;
+  transition: all var(--transition-default);
+}
+
+.portfolio-swiper .swiper-pagination-bullet-active {
+  background: rgba(var(--color-primary-rgb), 0.8);
+  width: 24px;
+  border-radius: 6px;
+}
+
+.portfolio-swiper .swiper-button-prev,
+.portfolio-swiper .swiper-button-next {
+  color: rgba(var(--color-text-light), 0.6);
+  transition: color var(--transition-default);
+  width: 44px;
+  height: 44px;
+  background: rgba(var(--color-slate-rgb), 0.6);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.portfolio-swiper .swiper-button-prev::after,
+.portfolio-swiper .swiper-button-next::after {
+  font-size: 20px;
+}
+
+.portfolio-swiper .swiper-button-prev:hover,
+.portfolio-swiper .swiper-button-next:hover {
+  color: rgba(var(--color-primary-rgb), 0.9);
+  background: rgba(var(--color-slate-rgb), 0.9);
+}
+
+.portfolio-swiper .swiper-button-prev {
+  left: 0;
+}
+
+.portfolio-swiper .swiper-button-next {
+  right: 0;
+}
+
+@media (max-width: 768px) {
+  .portfolio-swiper .swiper-button-prev,
+  .portfolio-swiper .swiper-button-next {
+    width: 36px;
+    height: 36px;
+  }
+
+  .portfolio-swiper .swiper-button-prev::after,
+  .portfolio-swiper .swiper-button-next::after {
+    font-size: 16px;
+  }
+
+  .portfolio-swiper .swiper-button-prev {
+    left: 0;
+  }
+
+  .portfolio-swiper .swiper-button-next {
+    right: 0;
+  }
+}
+
 .portfolio .portfolio-item {
   display: flex;
   flex: 1 1 auto;
@@ -1481,6 +1613,8 @@ section {
   overflow: hidden;
   position: relative;
   width: 100%;
+  height: 100%;
+  min-height: 600px;
   transition: transform var(--transition-default), box-shadow var(--transition-default), border-color var(--transition-default);
 }
 
@@ -1493,7 +1627,9 @@ section {
 .portfolio-card__media {
   position: relative;
   overflow: hidden;
-  min-height: clamp(120px, 18vw, 200px);
+  height: 140px;
+  min-height: 140px;
+  flex-shrink: 0;
   background: linear-gradient(140deg, rgba(var(--color-indigo-rgb), 0.55), rgba(var(--color-azure-rgb), 0.35));
   display: flex;
   align-items: flex-end;
@@ -1546,9 +1682,11 @@ section {
 .portfolio-card__body {
   display: flex;
   flex-direction: column;
-  gap: clamp(var(--spacing-sm), 2vw, var(--spacing-lg));
-  padding: clamp(var(--spacing-lg), 3vw, calc(var(--spacing-xl) * 1.2));
+  gap: clamp(10px, 1.5vw, 16px);
+  padding: clamp(16px, 2.5vw, 24px);
   color: var(--color-text-light);
+  flex: 1;
+  min-height: 0;
 }
 
 .portfolio-card__header {
@@ -1586,11 +1724,11 @@ section {
 
 .portfolio-card__title {
   margin: 0;
-  font-size: calc(var(--font-size-base) * 1.6);
+  font-size: calc(var(--font-size-base) * 1.4);
   font-weight: 700;
-  line-height: 1.25;
+  line-height: 1.2;
   margin-top: var(--spacing-sm);
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
 }
 
 .portfolio-card__title sup {
@@ -1601,30 +1739,33 @@ section {
 
 .portfolio-card__summary {
   margin: 0;
-  font-size: calc(var(--font-size-base) * 1.05);
-  line-height: 1.6;
+  font-size: calc(var(--font-size-base) * 0.95);
+  line-height: 1.5;
   color: rgba(var(--color-white-rgb), 0.78);
 }
 
 .portfolio-card__meta {
   display: grid;
-  gap: var(--spacing-sm);
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-xs);
+  grid-template-columns: 1fr;
   margin: 0;
   padding: 0;
+  font-size: 0.9em;
 }
 
 .portfolio-card__meta dt {
-  font-size: var(--font-size-small);
+  font-size: calc(var(--font-size-small) * 0.9);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: rgba(var(--color-white-rgb), 0.6);
+  margin-bottom: 2px;
 }
 
 .portfolio-card__meta dd {
   margin: 0;
-  font-size: calc(var(--font-size-base) * 0.95);
+  font-size: calc(var(--font-size-base) * 0.85);
   color: rgba(var(--color-white-rgb), 0.82);
+  line-height: 1.4;
 }
 
 .portfolio-card__tags {
@@ -1652,18 +1793,20 @@ section {
   flex-wrap: wrap;
   gap: var(--spacing-sm);
   margin-top: auto;
+  padding-top: var(--spacing-sm);
 }
 
 .portfolio-card__cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: var(--spacing-sm) calc(var(--spacing-md) * 1.25);
+  padding: 10px 20px;
   border-radius: 999px;
   border: 1px solid transparent;
   background: var(--color-link);
   color: var(--color-text-light);
   font-weight: 600;
+  font-size: 0.9em;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   transition: background-color var(--transition-default), border-color var(--transition-default), transform var(--transition-default);
