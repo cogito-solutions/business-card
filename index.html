@@ -19,6 +19,13 @@
     <link href="src/img/favicon.png" rel="icon" type="image/png">
     <link href="src/img/favicon.png" rel="apple-touch-icon" type="image/png">
 
+    <!-- Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
@@ -102,7 +109,7 @@
         <div class="container" data-aos="fade-up">
           <div class="row">
             <div class="col-lg-12 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
-              <h3 id="about-title">Automate. Optimize. Scale — with .cogito</h3>
+              <h2 id="about-title">Automate. Optimize. Scale — with .cogito</h2>
               <p>
                 At <strong>.cogito</strong>, we design AI-driven automation systems, data pipelines, and custom agents that streamline operations, reduce costs, and uncover insights hidden in your data.
                 We don’t ship templates — we build systems around your exact workflows. Our engineers work closely with you to turn complex manual processes into scalable, intelligent automation.
@@ -114,43 +121,41 @@
       <!-- End About Section -->
 
       <!-- ======= about Section ======= -->
-      <section id="about" class="about" aria-labelledby="about-title">
+      <section id="about-get-started" class="about" aria-labelledby="about-get-started-title">
         <div class="container" data-aos="fade-up">
           <header class="about__header">
-            <h4 id="about-title">Get started in minutes:</h4>
+            <h2 id="about-get-started-title">Get started in minutes:</h2>
             <p>Request sandbox access or hop on a call with our team.</p>
           </header>
 
           <div class="row g-4 align-items-stretch">
 
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-              <article class="about-card" aria-labelledby="about-consult-title">
+              <article class="about-card stack" aria-labelledby="about-consult-title">
                 <h3 id="about-consult-title" class="about-card__title">Book a Free Consultation</h3>
                 <p class="about-card__subtitle">
-                  Talk to our AI architect about automating your workflows.
+                  Talk to our AI architect about where intelligent systems can create measurable impact in your business.
                 </p>
                 <ul class="about-list">
-                  <li>Identify 2–3 automation quick wins</li>
-                  <li>Get a rough timeline &amp; budget</li>
-                  <li>No obligations</li>
+                  <li>Identify 2–3 high-impact AI opportunities</li>
+                  <li>Clarify feasibility, risks, and expected ROI</li>
+                  <li>Get a rough timeline &amp; budget estimate</li>
                 </ul>
                 <div class="about-cta">
                   <a href="#contact" class="about-button about-button--primary">
-                    Book a Call
+                    Start the conversation
                   </a>
                 </div>
-                <p class="about-caption"></p>
-                <p class="about-caption"></p>
               </article>
             </div>
 
             <div class="col-lg-6" data-aos="fade-up">
-              <article class="about-card" aria-labelledby="about-api-title">
+              <article class="about-card stack" aria-labelledby="about-api-title">
                 <form
                   id="apiKeyInline"
                   method="post"
-                  action="https://auth.cogito-tech.eu/  request"
-                  class="about-form"
+                  action="https://auth.cogito-tech.eu/request"
+                  class="about-form stack"
                   aria-describedby="about-api-lead"
                 >
                   <h3 id="about-api-title" class="about-card__title">Request an API Key</h3>
@@ -161,16 +166,15 @@
                   </label>
                   <label class="about-checkbox">
                     <input type="checkbox" name="consent" required />
-                    <span>I agree to the processing of my data to fulfill this request.</span>
+                    <span>I agree to the processing of my data to fulfill this request.<br>We do not store your data. <a href="privacy-policy.html">Privacy Policy</a></span>
                   </label>
                   <div class="about-cta">
                     <div id="apiKeyInlineError" class="about-message about-message--error hidden" role="alert"></div>
                     <button type="submit" class="about-button about-button--primary">Send Request</button>
-                    <p class="about-caption">We do not store your data. <a href="privacy-policy.html">Privacy Policy</a></p>
                   </div>
                 </form>
-                <div id="apiKeyInlineSuccess" class="about-state hidden" role="status" aria-live="polite">
-                  <h4 class="about-card__title">Check your inbox</h4>
+                <div id="apiKeyInlineSuccess" class="about-state stack hidden" role="status" aria-live="polite">
+                  <h3 class="about-card__title">Check your inbox</h3>
                   <p class="about-card__subtitle">We’ve sent your API key or next steps to your email.</p>
                   <div class="about-cta">
                     <a href="#portfolio" class="about-button about-button--ghost">Explore our projects</a>
@@ -207,7 +211,7 @@
           </div>
 
           <div class="services-grid">
-            <article class="service-card service-card--data" data-aos="fade-up" data-aos-delay="100">
+            <article class="service-card stack service-card--data" data-aos="fade-up" data-aos-delay="100">
               <div class="service-card__icon">
                 <svg viewBox="0 0 64 64" role="img" aria-labelledby="service-data-icon-title">
                   <title id="service-data-icon-title">Stacked datasets icon</title>
@@ -224,13 +228,12 @@
               <p class="service-card__lead">Build clean, real-time data foundations your teams can trust.</p>
               <ul class="service-card__list">
                 <li>Automated web/API data gathering</li>
-                <li>Cleaning, labeling, and semantic enrichment</li>
+                <li>Data quality checks, enrichment, and governance</li>
                 <li>Real-time dashboards and alerting systems</li>
               </ul>
-              <a class="service-card__cta" href="#contact" aria-label="Discuss data intelligence and pipelines">Plan a discovery call</a>
             </article>
 
-            <article class="service-card service-card--ml" data-aos="fade-up" data-aos-delay="180">
+            <article class="service-card stack service-card--ml" data-aos="fade-up" data-aos-delay="180">
               <div class="service-card__icon">
                 <svg viewBox="0 0 64 64" role="img" aria-labelledby="service-ml-icon-title">
                   <title id="service-ml-icon-title">Custom AI model icon</title>
@@ -240,18 +243,17 @@
                   <circle cx="44" cy="32" r="5" fill="currentColor" opacity="0.85"></circle>
                 </svg>
               </div>
-              <p class="service-card__tag">Machine Learning</p>
-              <h3>Custom AI Model Development</h3>
-              <p class="service-card__lead">Launch fine-tuned models aligned with your vertical and KPIs.</p>
+              <p class="service-card__tag">Machine Learning Systems</p>
+              <h3>Production ML &amp; Model Deployment</h3>
+              <p class="service-card__lead">From prototype to production: models, deployment, monitoring, retraining.</p>
               <ul class="service-card__list">
-                <li>Fine-tuning and prompt engineering for LLMs</li>
-                <li>Computer vision, NLP, and time-series models</li>
-                <li>Model evaluation, monitoring, and retraining</li>
+                <li>Vision, NLP, and structured prediction models</li>
+                <li>Fine-tuning, evaluation pipelines, and accuracy benchmarking</li>
+                <li>Scalable deployment in the cloud with monitoring, retraining, and cost control</li>
               </ul>
-              <a class="service-card__cta" href="#contact" aria-label="Scope your AI model engagement">Scope your model</a>
             </article>
 
-            <article class="service-card service-card--automation" data-aos="fade-up" data-aos-delay="260">
+            <article class="service-card stack service-card--automation" data-aos="fade-up" data-aos-delay="260">
               <div class="service-card__icon">
                 <svg viewBox="0 0 64 64" role="img" aria-labelledby="service-automation-icon-title">
                   <title id="service-automation-icon-title">Automation workflow icon</title>
@@ -263,17 +265,16 @@
                 </svg>
               </div>
               <p class="service-card__tag">Automation</p>
-              <h3>AI Process Automation</h3>
+              <h3>Workflow &amp; Process Automation</h3>
               <p class="service-card__lead">Replace repetitive workflows with orchestrated AI-driven operations.</p>
               <ul class="service-card__list">
-                <li>Reduce manual workload by 30–70%</li>
+                <li>Measurable reduction in manual work</li>
                 <li>Integrate with CRMs, ERP, and email systems</li>
-                <li>Custom bots and task orchestration via API or UI</li>
+                <li>Custom workflows and task orchestration via API or UI</li>
               </ul>
-              <a class="service-card__cta" href="#contact" aria-label="Start your automation project">Start an automation sprint</a>
             </article>
 
-            <article class="service-card service-card--agents" data-aos="fade-up" data-aos-delay="340">
+            <article class="service-card stack service-card--agents" data-aos="fade-up" data-aos-delay="340">
               <div class="service-card__icon">
                 <svg viewBox="0 0 64 64" role="img" aria-labelledby="service-agents-icon-title">
                   <title id="service-agents-icon-title">AI agent collaboration icon</title>
@@ -285,15 +286,14 @@
                   <path d="M42 24v-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
                 </svg>
               </div>
-              <p class="service-card__tag">Agents &amp; Integrations</p>
-              <h3>AI Agents &amp; Custom Integrations</h3>
+              <p class="service-card__tag">AI Agents</p>
+              <h3> AI Agents &amp; Private Assistants</h3>
               <p class="service-card__lead">Deploy copilots that plug into your tools and stay supervised.</p>
               <ul class="service-card__list">
-                <li>LLM-based support and analytics agents</li>
-                <li>Integrations with Slack, Telegram, Google Workspace, or internal tools</li>
-                <li>Low-latency AWS infrastructure and monitoring</li>
+                <li>Private GPT-style assistants for teams</li>
+                <li>Knowledge agents over internal docs (RAG)</li>
+                <li>Low-latency AWS infrastructure, analytics and monitoring</li>
               </ul>
-              <a class="service-card__cta" href="#contact" aria-label="Design your AI agent stack">Design your agent stack</a>
             </article>
           </div>
 
@@ -329,17 +329,17 @@
                   <li>
                     <button type="button" class="filter-button filter-active" data-filter="*" role="tab" aria-selected="true">All</button>
                   </li>
+                  <!-- <li>
+                    <button type="button" class="filter-button" data-filter=".filter-data" role="tab" aria-selected="false">Data</button>
+                  </li> -->
                   <li>
-                    <button type="button" class="filter-button" data-filter=".filter-web" role="tab" aria-selected="false">Apps</button>
-                  </li>
-                  <li>
-                    <button type="button" class="filter-button" data-filter=".filter-api" role="tab" aria-selected="false">APIs</button>
-                  </li>
-                  <li>
-                    <button type="button" class="filter-button" data-filter=".filter-model" role="tab" aria-selected="false">Models</button>
+                    <button type="button" class="filter-button" data-filter=".filter-ml" role="tab" aria-selected="false">ML Systems</button>
                   </li>
                   <li>
                     <button type="button" class="filter-button" data-filter=".filter-automation" role="tab" aria-selected="false">Automation</button>
+                  </li>
+                  <li>
+                    <button type="button" class="filter-button" data-filter=".filter-agents" role="tab" aria-selected="false">AI Agents</button>
                   </li>
                 </ul>
               </nav>
@@ -349,12 +349,12 @@
           <div class="swiper portfolio-swiper" data-aos="fade-up" data-aos-delay="20">
             <div class="swiper-wrapper">
 
-              <article class="swiper-slide portfolio-item portfolio-item--aboutd filter-web" role="article">
+              <article class="swiper-slide portfolio-item portfolio-item--aboutd filter-agents filter-automation" role="article">
                 <figure class="portfolio-card" data-aos="fade-right">
                   <div class="portfolio-card__media portfolio-card__media--sender">
-                    <span class="portfolio-card__media-label">Automation control room</span>
+                    <!-- <span class="portfolio-card__media-label">App</span> -->
                   </div>
-                  <figcaption class="portfolio-card__body">
+                  <figcaption class="portfolio-card__body stack">
                     <header class="portfolio-card__header">
                       <div class="portfolio-card__status">In private beta</div>
                       <h3 class="portfolio-card__title">Sender<sup>AI</sup></h3>
@@ -366,12 +366,8 @@
                         <dd>30% faster response cycles via autonomous follow-ups</dd>
                       </div>
                       <div>
-                        <dt>Stack</dt>
-                        <dd>vue.js · OpenAI · Postgres · Redis</dd>
-                      </div>
-                      <div>
-                        <dt>Services</dt>
-                        <dd>AI Agents · Workflow Automation · UX delivery</dd>
+                        <dt>Key capability</dt>
+                        <dd>Personalization + autonomous follow-ups + CRM syncing</dd>
                       </div>
                     </dl>
                     <footer class="portfolio-card__footer">
@@ -380,16 +376,16 @@
                 </figure>
               </article>
 
-              <article class="swiper-slide portfolio-item filter-model" role="article">
+              <article class="swiper-slide portfolio-item filter-ml filter-automation" role="article">
                 <figure class="portfolio-card" data-aos="fade-right" data-aos-delay="40">
                   <div class="portfolio-card__media portfolio-card__media--aws">
-                    <span class="portfolio-card__media-label">Receipt automation console</span>
+                    <!-- <span class="portfolio-card__media-label">API</span> -->
                   </div>
-                  <figcaption class="portfolio-card__body">
+                  <figcaption class="portfolio-card__body stack">
                     <header class="portfolio-card__header">
                       <div class="portfolio-card__status portfolio-card__status--success">In production</div>
                       <h3 class="portfolio-card__title">Vision-powered receipt parser</h3>
-                      <p class="portfolio-card__summary">Uploads supermarket checks, extracts structured line items, and emails finance teams an XLSX report within minutes.</p>
+                      <p class="portfolio-card__summary">Upload expense documents and a finance team will receive an XLSX report with extracted data within minutes.</p>
                     </header>
                     <dl class="portfolio-card__meta" aria-label="Project quick facts">
                       <div>
@@ -397,12 +393,8 @@
                         <dd><span aria-label="Under two minutes">&lt;2m</span> from receipt photo upload to inbox-ready spreadsheet</dd>
                       </div>
                       <div>
-                        <dt>Stack</dt>
-                        <dd>OpenCV · n8n · AWS SES</dd>
-                      </div>
-                      <div>
-                        <dt>Services</dt>
-                        <dd>Computer Vision · Document AI · Process Automation</dd>
+                        <dt>Key capability:</dt>
+                        <dd>Line-item extraction + validation + reporting automation</dd>
                       </div>
                     </dl>
                     <footer class="portfolio-card__footer">
@@ -412,12 +404,12 @@
                 </figure>
               </article>
 
-              <article class="swiper-slide portfolio-item filter-api" role="article">
+              <article class="swiper-slide portfolio-item filter-agents" role="article">
                 <figure class="portfolio-card" data-aos="fade-right" data-aos-delay="40">
-                  <div class="portfolio-card__media portfolio-card__media--aws">
-                    <span class="portfolio-card__media-label">Secure LLM console</span>
+                  <div class="portfolio-card__media portfolio-card__media--llm">
+                    <!-- <span class="portfolio-card__media-label">Secure LLM console</span> -->
                   </div>
-                  <figcaption class="portfolio-card__body">
+                  <figcaption class="portfolio-card__body stack">
                     <header class="portfolio-card__header">
                       <div class="portfolio-card__status portfolio-card__status--success">In production</div>
                       <h3 class="portfolio-card__title">AWS-hosted LLM agent</h3>
@@ -426,15 +418,11 @@
                     <dl class="portfolio-card__meta" aria-label="Project quick facts">
                       <div>
                         <dt>Latency</dt>
-                        <dd><span aria-label="Under one second">&lt;1s</span> average time-to-first-token with Bedrock streaming</dd>
+                        <dd><span>&lt;1.5s</span> average full-response latency  under typical load</dd>
                       </div>
                       <div>
-                        <dt>Stack</dt>
-                        <dd>AWS Bedrock · AWS Lambda · DynamoDB · AWS SageMaker</dd>
-                      </div>
-                      <div>
-                        <dt>Services</dt>
-                        <dd>LLM Ops · Prompt Engineering · Compliance tooling</dd>
+                        <dt>Security model</dt>
+                        <dd>Private deployment + access control + usage analytics</dd>
                       </div>
                     </dl>
                     <footer class="portfolio-card__footer">
@@ -444,29 +432,25 @@
                 </figure>
               </article>
 
-              <article class="swiper-slide portfolio-item filter-web filter-automation" role="article">
+              <article class="swiper-slide portfolio-item filter-agents filter-automation" role="article">
                 <figure class="portfolio-card" data-aos="fade-right" data-aos-delay="70">
                   <div class="portfolio-card__media portfolio-card__media--chatbot">
-                    <span class="portfolio-card__media-label">Knowledge bot workspace</span>
+                    <!-- <span class="portfolio-card__media-label">Knowledge bot workspace</span> -->
                   </div>
-                  <figcaption class="portfolio-card__body">
+                  <figcaption class="portfolio-card__body stack">
                     <header class="portfolio-card__header">
                       <div class="portfolio-card__status portfolio-card__status--success">In production</div>
                       <h3 class="portfolio-card__title">Document-aware chatbot</h3>
-                      <p class="portfolio-card__summary">Telegram bot and embeddable web widget that answers document questions with guardrailed RAG pipelines.</p>
+                      <p class="portfolio-card__summary">Telegram interface is just the frontend. The core is an enterprise-grade document retrieval system (RAG). </p>
                     </header>
                     <dl class="portfolio-card__meta" aria-label="Project quick facts">
                       <div>
                         <dt>Predictable and verifiable outcomes</dt>
-                        <dd>Up to 97% less chance of hallucination</dd>
+                        <dd>Reduced hallucinations via guarded RAG + source grounding</dd>
                       </div>
                       <div>
-                        <dt>Stack</dt>
-                        <dd>Redis · PostgreSQL · n8n · Docker</dd>
-                      </div>
-                      <div>
-                        <dt>Services</dt>
-                        <dd>Knowledge Bases · Agentic UX · Infrastructure</dd>
+                        <dt>Answer quality</dt>
+                        <dd>Source-grounded answers · document permissions · citations</dd>
                       </div>
                     </dl>
                     <footer class="portfolio-card__footer">
@@ -502,7 +486,7 @@
 
           <div class="row gy-5 align-items-start contact-layout">
             <div class="col-lg-5">
-              <aside class="contact-card" data-aos="fade-right">
+              <aside class="contact-card stack" data-aos="fade-right">
                 <h3 class="contact-card__title">Tell us about your workflow</h3>
                 <p class="contact-card__lead">Share a quick brief and we’ll set up a discovery call tailored to your team.</p>
                 <ul class="contact-card__list">
@@ -521,7 +505,7 @@
 
             <div class="col-lg-7">
               <div class="contact-panel" data-aos="fade-left">
-                <form id="contactForm" class="contact-form" action="https://api.web3forms.com/submit" method="post">
+                <form id="contactForm" class="contact-form stack" action="https://api.web3forms.com/submit" method="post">
                   <input type="hidden" name="access_key" value="2910b8ee-abb2-4678-b4a3-d0cc80f28d18">
                   <input type="hidden" name="subject" value="New contact request from cogito-labs.eu">
 
@@ -605,7 +589,7 @@
 
       <div class="container">
         <div class="copyright">
-          &copy; <strong><span>.cogito - 2026 </span></strong>.
+          <strong><span>.cogito - 2026 </span></strong>
         </div>
       </div>
 

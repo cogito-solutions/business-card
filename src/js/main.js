@@ -1,6 +1,15 @@
 (function() {
   "use strict";
 
+  // Constants
+  const SCROLL_OFFSET = 200;
+  const SCROLL_THRESHOLD = 100;
+  const DEBOUNCE_DELAY = 100;
+  const PORTFOLIO_AUTOPLAY_DELAY = 25000;
+  const PORTFOLIO_ANIMATION_SPEED = 600;
+  const PORTFOLIO_SLIDE_PAUSE_SPEED = 400;
+  const AOS_DURATION = 500;
+
   /**
    * Easy selector helper function
    * @param {string} el - The selector string.
@@ -58,7 +67,7 @@
    */
   const navbarlinks = select('#navmenu .scrollto', true);
   const navbarlinksActive = () => {
-    const position = window.scrollY + 200;
+    const position = window.scrollY + SCROLL_OFFSET;
     navbarlinks.forEach(navbarlink => {
       if (!navbarlink.hash) return;
       const section = select(navbarlink.hash);
@@ -73,7 +82,7 @@
     });
   };
   window.addEventListener('load', navbarlinksActive);
-  onscroll(document, debounce(navbarlinksActive, 100)); // Debounce scroll event handler
+  onscroll(document, debounce(navbarlinksActive, DEBOUNCE_DELAY));
 
   /**
    * Scrolls to an element with header offset
@@ -98,14 +107,14 @@
   const selectHeader = select('#header');
   if (selectHeader) {
     const headerScrolled = () => {
-      if (window.scrollY > 100) {
+      if (window.scrollY > SCROLL_THRESHOLD) {
         selectHeader.classList.add('header-scrolled');
       } else {
         selectHeader.classList.remove('header-scrolled');
       }
     };
     window.addEventListener('load', headerScrolled);
-    onscroll(document, debounce(headerScrolled, 100)); // Debounce scroll event handler
+    onscroll(document, debounce(headerScrolled, DEBOUNCE_DELAY));
   }
 
   /**
@@ -114,85 +123,56 @@
   const backtotop = select('.back-to-top');
   if (backtotop) {
     const toggleBacktotop = () => {
-      if (window.scrollY > 100) {
+      if (window.scrollY > SCROLL_THRESHOLD) {
         backtotop.classList.add('active');
-        backtotop.setAttribute('aria-hidden', 'false'); // Ensure the button is visible to screen readers
+        backtotop.setAttribute('aria-hidden', 'false');
       } else {
         backtotop.classList.remove('active');
-        backtotop.setAttribute('aria-hidden', 'true'); // Hide the button from screen readers
+        backtotop.setAttribute('aria-hidden', 'true');
       }
     };
     window.addEventListener('load', toggleBacktotop);
-    onscroll(document, debounce(toggleBacktotop, 100)); // Debounce scroll event handler
+    onscroll(document, debounce(toggleBacktotop, DEBOUNCE_DELAY));
   }
 
   /**
    * Mobile nav toggle
    */
+  const mobileNavToggle = () => {
+    const body = document.querySelector('body');
+    const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
+    if (!mobileNavToggleBtn) return;
 
-  const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
-
-  function mobileNavToogle() {
-    document.querySelector('body').classList.toggle('mobile-nav-active');
+    body.classList.toggle('mobile-nav-active');
     mobileNavToggleBtn.classList.toggle('bi-list');
     mobileNavToggleBtn.classList.toggle('bi-x');
-  }
-  if (mobileNavToggleBtn) {
-    mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
-  }
+    mobileNavToggleBtn.setAttribute('aria-expanded', body.classList.contains('mobile-nav-active'));
+  };
 
-/**
- * Toggle mobile navigation menu
- */
-function mobileNavToogle() {
-  document.querySelector('body').classList.toggle('mobile-nav-active');
   const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
-  mobileNavToggleBtn.classList.toggle('bi-list');
-  mobileNavToggleBtn.classList.toggle('bi-x');
-  mobileNavToggleBtn.setAttribute('aria-expanded', document.querySelector('body').classList.contains('mobile-nav-active'));
-}
-
-// Toggle mobile menu on click
-document.querySelector('.mobile-nav-toggle')?.addEventListener('click', mobileNavToogle);
-
-/**
- * Smooth scroll and mobile menu toggle on link click
- */
-document.addEventListener('click', function(e) {
-  if (e.target.matches('.scrollto')) {
-    const targetHash = e.target.getAttribute('href');
-    const targetElement = document.querySelector(targetHash);
-
-    if (targetElement) {
-      e.preventDefault();
-
-      // Close mobile menu if it's open
-      if (document.querySelector('body').classList.contains('mobile-nav-active')) {
-        mobileNavToogle();
-      }
-
-      // Smooth scroll to the target element
-      targetElement.scrollIntoView({ behavior: 'smooth' });
-    }
+  if (mobileNavToggleBtn) {
+    mobileNavToggleBtn.addEventListener('click', mobileNavToggle);
   }
-}, true);
-
-
-
-
 
   /**
-   * Hide mobile nav on same-page/hash links
+   * Smooth scroll and mobile menu toggle on link click
    */
-  // document.querySelectorAll('#navmenu a').forEach(navmenu => {
-  //   navmenu.addEventListener('click', () => {
-  //     if (document.querySelector('.mobile-nav-active')) {
-  //       mobileNavToogle();
-  //     }
-  //   });
+  document.addEventListener('click', function(e) {
+    if (e.target.matches('.scrollto')) {
+      const targetHash = e.target.getAttribute('href');
+      const targetElement = document.querySelector(targetHash);
 
-  // });
+      if (targetElement) {
+        e.preventDefault();
 
+        if (document.querySelector('body').classList.contains('mobile-nav-active')) {
+          mobileNavToggle();
+        }
+
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, true);
 
   /**
    * Mobile nav dropdowns activate
@@ -205,24 +185,6 @@ document.addEventListener('click', function(e) {
     }
   }, true)
 
-  // /**
-  //  * Scroll with offset on links with a class name .scrollto
-  //  */
-  // on('click', '.scrollto', function(e) {
-  //   if (select(this.hash)) {
-  //     e.preventDefault();
-
-  //     const navbar = select('#navbar');
-  //     if (navbar.classList.contains('navbar-mobile')) {
-  //       navbar.classList.remove('navbar-mobile');
-  //       const navbarToggle = select('.mobile-nav-toggle');
-  //       navbarToggle.classList.toggle('bi-list');
-  //       navbarToggle.classList.toggle('bi-x');
-  //       navbarToggle.setAttribute('aria-expanded', 'false');
-  //     }
-  //     scrollto(this.hash);
-  //   }
-  // }, true);
 
   /**
    * Scroll with offset on page load with hash links in the URL
@@ -244,46 +206,6 @@ document.addEventListener('click', function(e) {
       preloader.remove();
     });
   }
-
-  /**
-   * Clients Slider
-   */
-  // try {
-  //   new Swiper('.clients-slider', {
-  //     speed: 400,
-  //     loop: true,
-  //     autoplay: {
-  //       delay: 5000,
-  //       disableOnInteraction: false
-  //     },
-  //     slidesPerView: 'auto',
-  //     pagination: {
-  //       el: '.swiper-pagination',
-  //       type: 'bullets',
-  //       clickable: true
-  //     },
-  //     breakpoints: {
-  //       320: {
-  //         slidesPerView: 2,
-  //         spaceBetween: 40
-  //       },
-  //       480: {
-  //         slidesPerView: 3,
-  //         spaceBetween: 60
-  //       },
-  //       640: {
-  //         slidesPerView: 4,
-  //         spaceBetween: 80
-  //       },
-  //       992: {
-  //         slidesPerView: 6,
-  //         spaceBetween: 120
-  //       }
-  //     }
-  //   });
-  // } catch (error) {
-  //   console.error('Failed to initialize clients slider:', error);
-  // }
 
   /**
    * Portfolio filter controls with Swiper
@@ -344,94 +266,56 @@ document.addEventListener('click', function(e) {
     }
   });
 
-  /**
-   * Initiate portfolio lightbox
-   */
-  // Uncomment and configure the lightbox as needed
-  const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
-  });
 
   /**
    * Portfolio slider
    */
-  try {
-    portfolioSwiperInstance = new Swiper('.portfolio-swiper', {
-      speed: 600,
-      loop: false,
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        type: 'bullets',
-        clickable: true
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      slidesPerView: 'auto',
-      spaceBetween: 30,
-      centeredSlides: false,
-      watchOverflow: true,
-      breakpoints: {
-        320: {
-          spaceBetween: 15
+  if (typeof Swiper !== 'undefined') {
+    try {
+      portfolioSwiperInstance = new Swiper('.portfolio-swiper', {
+        speed: PORTFOLIO_ANIMATION_SPEED,
+        loop: false,
+        autoplay: {
+          delay: PORTFOLIO_AUTOPLAY_DELAY,
+          disableOnInteraction: true
         },
-        640: {
-          spaceBetween: 20
+        pagination: {
+          el: '.swiper-pagination',
+          type: 'bullets',
+          clickable: true
         },
-        768: {
-          spaceBetween: 25
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
         },
-        1024: {
-          spaceBetween: 30
+        slidesPerView: 'auto',
+        spaceBetween: 30,
+        centeredSlides: false,
+        watchOverflow: true,
+        breakpoints: {
+          320: { spaceBetween: 15 },
+          640: { spaceBetween: 20 },
+          768: { spaceBetween: 25 },
+          1024: { spaceBetween: 30 }
         }
-      }
-    });
-  } catch (error) {
-    console.error('Failed to initialize portfolio slider:', error);
+      });
+    } catch (error) {
+      console.error('Failed to initialize portfolio slider:', error);
+    }
   }
-
-  /**
-   * Portfolio details slider
-   */
-  try {
-    new Swiper('.portfolio-details-slider', {
-      speed: 400,
-      loop: true,
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        type: 'bullets',
-        clickable: true
-      }
-    });
-  } catch (error) {
-    console.error('Failed to initialize portfolio details slider:', error);
-  }
-
 
   /**
    * Animation on scroll
    */
   window.addEventListener('load', () => {
-    AOS.init({
-      duration: 500,
-      easing: "ease-in-out",
-      once: true,
-      mirror: false
-    });
+    if (typeof AOS !== 'undefined') {
+      AOS.init({
+        duration: AOS_DURATION,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false
+      });
+    }
   });
-
-  /**
-   * Initiate Pure Counter
-   */
-  // new PureCounter();
 
 })();
