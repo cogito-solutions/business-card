@@ -40,11 +40,58 @@
     <!-- Template Main CSS File -->
     <link href="src/css/style.css" rel="stylesheet">
 
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": ".cogito",
+      "url": "https://cogito-tech.eu",
+      "description": "Data as a Service - AI automation, ML systems, workflow automation, and intelligent AI agents for enterprises.",
+      "logo": "https://cogito-tech.eu/src/img/favicon.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Warsaw",
+        "addressCountry": "PL"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/cogito-tech-eu",
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Support",
+        "url": "https://cogito-tech.eu/#contact"
+      },
+      "service": [
+        {
+          "@type": "Service",
+          "name": "Data Intelligence & Pipelines",
+          "description": "Automated web/API data gathering, data quality checks, enrichment, governance, real-time dashboards and alerting systems."
+        },
+        {
+          "@type": "Service",
+          "name": "Production ML & Model Deployment",
+          "description": "Vision, NLP, and structured prediction models with fine-tuning, evaluation pipelines, and scalable cloud deployment."
+        },
+        {
+          "@type": "Service",
+          "name": "Workflow & Process Automation",
+          "description": "Replace repetitive workflows with orchestrated AI-driven operations integrated with CRMs, ERP, and email systems."
+        },
+        {
+          "@type": "Service",
+          "name": "AI Agents & Private Assistants",
+          "description": "Deploy private copilots and knowledge agents over internal docs with RAG, low-latency AWS infrastructure, and monitoring."
+        }
+      ]
+    }
+    </script>
+
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content=".cogito - Data as a Service">
     <meta property="og:description" content="Cogito offers cutting-edge services, helping businesses harness the power of data through expert data scientists. ">
     <meta property="og:image" content="src/img/og-image.png">
-    <meta property="og:url" content="https://cogito-labs.xyz">
+    <meta property="og:url" content="https://cogito-tech.eu">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content=".cogito">
 
@@ -74,7 +121,7 @@
     <header id="header" class="header d-flex align-items-center fixed-top">
       <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-        <h1 class="logo me-auto me-lg-0"><a href="index.html"><span>.</span>cogito</a></h1>
+        <div class="logo me-auto me-lg-0"><a href="index.html"><span>.</span>cogito</a></div>
 
         <nav id="navmenu" class="navmenu">
           <ul>
@@ -507,7 +554,7 @@
               <div class="contact-panel" data-aos="fade-left">
                 <form id="contactForm" class="contact-form stack" action="https://api.web3forms.com/submit" method="post">
                   <input type="hidden" name="access_key" value="2910b8ee-abb2-4678-b4a3-d0cc80f28d18">
-                  <input type="hidden" name="subject" value="New contact request from cogito-labs.eu">
+                  <input type="hidden" name="subject" value="New contact request from cogito-tech.eu">
 
                   <div class="contact-form__row">
                     <div class="contact-form__field">
