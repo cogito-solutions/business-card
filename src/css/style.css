@@ -924,6 +924,16 @@ section {
   color: var(--color-link);
 }
 
+.about .content ul.hero-fit-list {
+  list-style: disc;
+  padding-left: var(--spacing-md);
+  text-align: left;
+}
+
+.about .content ul.hero-fit-list li {
+  padding-left: 0;
+}
+
 @media (max-width: 768px) {
   .about .content h2 {
     font-size: var(--font-size-medium);
@@ -945,7 +955,6 @@ section {
 }
 
 .about__header {
-  max-width: 560px;
   margin: 0 auto var(--spacing-xl);
   display: grid;
   gap: var(--spacing-sm);
