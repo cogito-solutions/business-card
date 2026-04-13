@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-59L49QL3');</script>
-    <!-- End Google Tag Manager -->
+
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -108,20 +102,7 @@
   </head>
 
   <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-59L49QL3"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7QE0ERY5MP"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-7QE0ERY5MP');
-  </script>
     <!-- ======= Header ======= -->
     <header id="header" class="header d-flex align-items-center fixed-top">
       <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
@@ -609,6 +590,7 @@
               <li><i class="bx bx-chevron-right"></i> <a href="#services">Services</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="terms-of-service.html">Terms of service</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="privacy-policy.html">Privacy policy</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#" id="open-cookie-settings" role="button">Cookie Settings</a></li>
             </ul>
           </div>
         </div>
@@ -627,6 +609,24 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <div id="preloader"></div>
+  <div id="cookie-banner" hidden>
+    <div class="cookie-box" role="dialog" aria-live="polite" aria-label="Cookie consent">
+      <p>
+        We use optional analytics cookies to understand website traffic.
+        These cookies are only used if you agree.
+        <a href="/privacy-policy.html">Privacy Policy</a>
+      </p>
+
+      <div class="cookie-actions">
+        <button id="cookie-accept" class="about-button about-button--primary" type="button">
+          Accept analytics
+        </button>
+        <button id="cookie-reject" class="about-button about-button--secondary" type="button">
+          Reject
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- Libs -->
   <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounter.js/dist/purecounter_vanilla.js"></script>
@@ -637,6 +637,7 @@
   <!-- Scripts-->
   <script src="src/js/main.js"></script>
   <script src="src/js/api-request-form.js "></script>
+  <script src="src/js/consent.js"></script>
 </body>
 
 </html>
